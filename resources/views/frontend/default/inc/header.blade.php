@@ -6,8 +6,8 @@ if(!isset($email_verified_at)){
     ->get();  
     $email_verified_at = count($users)>0 ? true : false;
     }
-@endphp
 }
+@endphp
 <header class="aiz-header @if(get_setting('header_stikcy') == 'on') sticky-top @endif"
     style="background:#d65e2c!important;">
     <div class="aiz-navbar py-15px fs-14 position-relative">

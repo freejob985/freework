@@ -51,7 +51,10 @@ class ProjectController extends Controller
 
     public function index()
     {
-        dd(1);
+        $users = DB::table('users')->where('id',Auth::user()->id)
+        ->whereNotNull('email_verified_at')
+        ->get();  
+        dd($users)  ;
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
         return view('frontend.default.user.client.projects.list', compact('projects'));
     }

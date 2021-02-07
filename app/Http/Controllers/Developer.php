@@ -43,11 +43,6 @@ class Developer extends Controller
         $email = DB::table('users')->where('id', $id)->value('email');
         if ($services == "services") {
            // route('service.edit', $service->slug);
-
-
-
-
-
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
                 $msg,

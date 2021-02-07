@@ -215,7 +215,6 @@ class SupportTicketController extends Controller
         $array['email'] = $email;
         $array['users'] = $users;
      //    dd($array);
-
         Mail::send('/st', ['array' => $array], function ($m) use ($array) {
             $m->to($array['email'] )->subject('reply Support Ticket ')->getSwiftMessage()
                 ->getHeaders()
@@ -223,7 +222,7 @@ class SupportTicketController extends Controller
             $m->from('sub@digi-gate.com', 'مسطر');
 
         });
-
+        
         $ticket_reply = new SupportTicketReply;
         $ticket_reply->support_ticket_id = $request->support_ticket_id;
         $ticket_reply->replied_user_id = Auth::user()->id;

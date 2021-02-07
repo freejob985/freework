@@ -15,10 +15,12 @@
 							</div>
 							
 							<div class="col-md-6 text-md-right">
+								@if ($email_verified_at== true)
 								<a href="{{Request::root()}}/Terms-Conditions-Project" class="btn btn-primary">
 									<i class="las la-plus"></i>
 									<span>{{ translate('Add New Project') }}</span>
 								</a>
+								@endif
 							</div>
                         </div>
                     </div>

@@ -228,7 +228,7 @@
 	                                        <a href="{{ route('project.bids', $project->slug) }}" class="btn btn-primary btn-sm fw-500">{{translate('See All Bidders')}}</a>
 											@php
 											$projects_ = DB::table('projects')->where('id', $project->id)->value('project_approval');
-											dd($projects_);
+											dd(gettype($projects_));
 											@endphp
 									
 

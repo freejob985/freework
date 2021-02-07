@@ -51,6 +51,7 @@ class ProjectController extends Controller
 
     public function index()
     {
+        dd(1);
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
         return view('frontend.default.user.client.projects.list', compact('projects'));
     }

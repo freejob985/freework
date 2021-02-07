@@ -54,13 +54,13 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-      
+
         if (Session::get('locale') === "sa") {
             $url = "http://sub.digi-gate.com/Terms-Conditions";
         } else {
             $url = "http://sub.digi-gate.com/Terms-Conditions-en";
         }
-        return view('frontend.default.user_sign_up',compact('url'));
+        return view('frontend.default.user_sign_up', compact('url'));
     }
 
     /**
@@ -127,13 +127,17 @@ class RegisterController extends Controller
         $address = new Address;
         $user->address()->save($address);
         Session::put('role_id', $role->id);
-
         $user_profile = new UserProfile;
         $user_profile->user_id = $user->id;
         $user_profile->user_role_id = Session::get('role_id');
         $user_profile->save();
-
         return $user;
+
+        DB::table('addresses')
+            ->where('addressable_id', $user->id)
+            ->update([
+                'phone' => $request->input('phone'),
+            ]);
     }
 
     /**

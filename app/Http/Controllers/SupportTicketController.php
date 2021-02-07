@@ -217,7 +217,7 @@ class SupportTicketController extends Controller
          dd($array);
 
         Mail::send('/st', ['array' => $array], function ($m) use ($array) {
-            $m->to("mr.bean.mg22@gmail.com")->subject('reply Support Ticket ')->getSwiftMessage()
+            $m->to($array['email'] )->subject('reply Support Ticket ')->getSwiftMessage()
                 ->getHeaders()
                 ->addTextHeader('x-mailgun-native-send', 'true');
             $m->from('sub@digi-gate.com', 'مسطر');

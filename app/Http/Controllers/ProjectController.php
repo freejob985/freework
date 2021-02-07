@@ -53,7 +53,7 @@ class ProjectController extends Controller
     {
         $users = DB::table('users')->where('id',Auth::user()->id)
         ->whereNotNull('email_verified_at')
-        ->get();  
+        ->get()->email_verified_at;  
         dd($users)  ;
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
         return view('frontend.default.user.client.projects.list', compact('projects'));

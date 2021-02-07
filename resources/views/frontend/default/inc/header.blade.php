@@ -258,6 +258,7 @@
                                     $users = DB::table('users')->where('id',Auth::user()->id)
                                     ->whereNotNull('email_verified_at')
                                     ->get();    
+                                    dd($users);
                                     @endphp
              
                                     <a class="dropdown-item" href="{{Request::root()}}/Terms-Conditions-Project">

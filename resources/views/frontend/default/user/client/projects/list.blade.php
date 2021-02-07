@@ -226,8 +226,15 @@
 											<a href="javascript:void(0)" class="btn btn-secondary btn-sm fw-500 confirm-cancel" data-href="{{route('projects.cancel', $project->id)}}">{{ translate('Cancel') }}</a>
 	                                        <a href="{{ route('projects.edit',encrypt($project->id)) }}" class="btn btn-secondary btn-sm fw-500">{{ translate('Edit') }}</a>
 	                                        <a href="{{ route('project.bids', $project->slug) }}" class="btn btn-primary btn-sm fw-500">{{translate('See All Bidders')}}</a>
-											<a href="#" class="btn btn-primary btn-sm fw-500">#</a>
-
+                                           @php
+										   $projects = DB::table('projects')->where('id', $project->id)->value('project_approval');
+										   @endphp
+											@if ($projects=="0")
+											<a href="#" class="btn btn-warning btn-sm fw-500">رفض</a>
+											@else
+											<a href="#" class="btn btn-success btn-sm fw-500">قبول</a>	
+											@endif
+				
 										</div>
 									@endif
 								</div>

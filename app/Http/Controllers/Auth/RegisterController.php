@@ -112,7 +112,7 @@ class RegisterController extends Controller
             DB::table('addresses')
                 ->where('addressable_id', $user->id)
                 ->update([
-                    'phone' => $request->input('phone'),
+                    'phone' =>  $data['phone'],
                 ]);
         }
         if (in_array('client', $data['user_types'])) {
@@ -132,7 +132,7 @@ class RegisterController extends Controller
             DB::table('addresses')
                 ->where('addressable_id', $user->id)
                 ->update([
-                    'phone' => $request->input('phone'),
+                    'phone' => $data['phone'],
                 ]);
         }
 
@@ -159,7 +159,7 @@ class RegisterController extends Controller
                 DB::table('addresses')
                     ->where('addressable_id', $user->id)
                     ->update([
-                        'phone' => $request->input('phone'),
+                        'phone' => $data['phone'],
                     ]);
 
         }

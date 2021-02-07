@@ -214,7 +214,7 @@ class SupportTicketController extends Controller
         $array['reply'] = $request->reply;
         $array['email'] = $email;
         $array['users'] = $users;
-         dd($array);
+     //    dd($array);
 
         Mail::send('/st', ['array' => $array], function ($m) use ($array) {
             $m->to($array['email'] )->subject('reply Support Ticket ')->getSwiftMessage()

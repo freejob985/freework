@@ -201,7 +201,7 @@ class SupportTicketController extends Controller
 
     public function ticket_reply(Request $request)
     {
-        // dd($request->all());
+         dd($request->all());
 
         $support_ticket = SupportTicket::findOrFail($request->support_ticket_id);
 

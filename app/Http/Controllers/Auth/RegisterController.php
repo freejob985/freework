@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Address;
 use App\Models\Role;
 use App\Models\UserProfile;
 use App\Models\UserRole;
@@ -87,7 +86,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        //dd($data);
+        //  dd($data);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -96,24 +95,30 @@ class RegisterController extends Controller
         ]);
 
         if (in_array('freelancer', $data['user_types'])) {
+            //  dd($data['phone']);
+            DB::table('addresses')
+                ->where('addressable_id', $user->id)
+                ->update([
+                    'phone' => $data['phone'],
+                ]);
             $role = Role::where('name', 'Freelancer')->first();
             $user_role = new UserRole;
             $user_role->user_id = $user->id;
             $user_role->role_id = $role->id;
             $user_role->save();
-            $address = new Address;
-            $user->address()->save($address);
+
+            DB::table('addresses')->insert([
+                'addressable_id' => $user->id,
+                'addressable_type' => "App\User",
+                'phone' => $data['phone'],
+            ]);
             Session::put('role_id', $role->id);
             $user_profile = new UserProfile;
             $user_profile->user_id = $user->id;
             $user_profile->user_role_id = Session::get('role_id');
             $user_profile->save();
             return $user;
-            DB::table('addresses')
-                ->where('addressable_id', $user->id)
-                ->update([
-                    'phone' =>  $data['phone'],
-                ]);
+
         }
         if (in_array('client', $data['user_types'])) {
             $role = Role::where('name', 'Client')->first();
@@ -121,8 +126,11 @@ class RegisterController extends Controller
             $user_role->user_id = $user->id;
             $user_role->role_id = $role->id;
             $user_role->save();
-            $address = new Address;
-            $user->address()->save($address);
+            DB::table('addresses')->insert([
+                'addressable_id' => $user->id,
+                'addressable_type' => "App\User",
+                'phone' => $data['phone'],
+            ]);
             Session::put('role_id', $role->id);
             $user_profile = new UserProfile;
             $user_profile->user_id = $user->id;
@@ -148,22 +156,24 @@ class RegisterController extends Controller
                 ->update([
                     'comprehensive' => 1,
                 ]);
-                $address = new Address;
-                $user->address()->save($address);
-                Session::put('role_id', $role->id);
-                $user_profile = new UserProfile;
-                $user_profile->user_id = $user->id;
-                $user_profile->user_role_id = Session::get('role_id');
-                $user_profile->save();
-                return $user;
-                DB::table('addresses')
-                    ->where('addressable_id', $user->id)
-                    ->update([
-                        'phone' => $data['phone'],
-                    ]);
+            DB::table('addresses')->insert([
+                'addressable_id' => $user->id,
+                'addressable_type' => "App\User",
+                'phone' => $data['phone'],
+            ]);
+            Session::put('role_id', $role->id);
+            $user_profile = new UserProfile;
+            $user_profile->user_id = $user->id;
+            $user_profile->user_role_id = Session::get('role_id');
+            $user_profile->save();
+            return $user;
+            DB::table('addresses')
+                ->where('addressable_id', $user->id)
+                ->update([
+                    'phone' => $data['phone'],
+                ]);
 
         }
-   
 
     }
 

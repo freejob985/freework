@@ -32,7 +32,7 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label" for="phone">رقم الهاتف</label>
-								<input type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" id="signinSrEmail" placeholder="phone"  required>
+								<input type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" id="signinSrEmail" placeholder="phone"  required>
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror

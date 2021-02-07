@@ -128,6 +128,7 @@ class RegisterController extends Controller
 
         }
         $address = new Address;
+        dd($address);
         $user->address()->save($address);
         Session::put('role_id', $role->id);
         $user_profile = new UserProfile;

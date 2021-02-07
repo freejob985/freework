@@ -1,4 +1,5 @@
 @php
+if(Auth::check()){
 if(!isset($email_verified_at)){
     $users = DB::table('users')->where('id',Auth::user()->id)
     ->whereNotNull('email_verified_at')
@@ -6,6 +7,7 @@ if(!isset($email_verified_at)){
     $email_verified_at = count($users)>0 ? true : false;
     }
 @endphp
+}
 <header class="aiz-header @if(get_setting('header_stikcy') == 'on') sticky-top @endif"
     style="background:#d65e2c!important;">
     <div class="aiz-navbar py-15px fs-14 position-relative">

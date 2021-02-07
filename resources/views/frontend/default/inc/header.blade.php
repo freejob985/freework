@@ -254,6 +254,12 @@
                                         {{ translate('Dashboard') }}
                                     </a>
                                     @if (isClient())
+                                    @php
+                                    $users = DB::table('users')->where('id',Auth::user()->id)
+                                    ->whereNotNull('email_verified_at')
+                                    ->get();    
+                                    @endphp
+             
                                     <a class="dropdown-item" href="{{Request::root()}}/Terms-Conditions-Project">
                                         <i class="las la-tachometer-alt"></i>
                                         {{ translate('Add New Project') }}

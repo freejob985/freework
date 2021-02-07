@@ -54,12 +54,9 @@ class ProjectController extends Controller
         $users = DB::table('users')->where('id',Auth::user()->id)
         ->whereNotNull('email_verified_at')
         ->get();  
-        
         $email_verified_at = count($users)>0 ? true : false;
-
-        dd($email_verified_at)  ;
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
-        return view('frontend.default.user.client.projects.list', compact('projects'));
+        return view('frontend.default.user.client.projects.list', compact('projects','email_verified_at'));
     }
 
     public function my_open_project()

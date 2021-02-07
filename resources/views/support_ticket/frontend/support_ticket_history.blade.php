@@ -67,7 +67,8 @@
                                             <td scope="row">{{$support_ticket->subject}}</td>
                                             <td  scope="row" class="text-secondary">{{$support_ticket->supportCategory->name}}</td>
                                             <td class="text-secondary">{{$support_ticket->created_at}}</td>
-                                            <td class="text-primary">0</td>
+                                            <td class="text-primary">{{DB::table('support_ticket_replies')->where('support_ticket_id',$support_ticket->id)->count()  }}
+                                            </td>
                                             <td scope="row">
                                                 <a class="btn btn-xs btn-soft-primary" href="{{ route('support-tickets.user_view_details', encrypt($support_ticket->id)) }}">{{ translate('View details') }}</a>
                                             </td>

@@ -95,13 +95,25 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-
         if (in_array('freelancer', $data['user_types'])) {
             $role = Role::where('name', 'Freelancer')->first();
             $user_role = new UserRole;
             $user_role->user_id = $user->id;
             $user_role->role_id = $role->id;
             $user_role->save();
+            $address = new Address;
+            $user->address()->save($address);
+            Session::put('role_id', $role->id);
+            $user_profile = new UserProfile;
+            $user_profile->user_id = $user->id;
+            $user_profile->user_role_id = Session::get('role_id');
+            $user_profile->save();
+            return $user;
+            DB::table('addresses')
+                ->where('addressable_id', $user->id)
+                ->update([
+                    'phone' => $request->input('phone'),
+                ]);
         }
         if (in_array('client', $data['user_types'])) {
             $role = Role::where('name', 'Client')->first();
@@ -109,6 +121,19 @@ class RegisterController extends Controller
             $user_role->user_id = $user->id;
             $user_role->role_id = $role->id;
             $user_role->save();
+            $address = new Address;
+            $user->address()->save($address);
+            Session::put('role_id', $role->id);
+            $user_profile = new UserProfile;
+            $user_profile->user_id = $user->id;
+            $user_profile->user_role_id = Session::get('role_id');
+            $user_profile->save();
+            return $user;
+            DB::table('addresses')
+                ->where('addressable_id', $user->id)
+                ->update([
+                    'phone' => $request->input('phone'),
+                ]);
         }
 
         if (in_array('comprehensive', $data['user_types'])) {
@@ -123,22 +148,23 @@ class RegisterController extends Controller
                 ->update([
                     'comprehensive' => 1,
                 ]);
+                $address = new Address;
+                $user->address()->save($address);
+                Session::put('role_id', $role->id);
+                $user_profile = new UserProfile;
+                $user_profile->user_id = $user->id;
+                $user_profile->user_role_id = Session::get('role_id');
+                $user_profile->save();
+                return $user;
+                DB::table('addresses')
+                    ->where('addressable_id', $user->id)
+                    ->update([
+                        'phone' => $request->input('phone'),
+                    ]);
 
         }
-        $address = new Address;
-        $user->address()->save($address);
-        Session::put('role_id', $role->id);
-        $user_profile = new UserProfile;
-        $user_profile->user_id = $user->id;
-        $user_profile->user_role_id = Session::get('role_id');
-        $user_profile->save();
-        return $user;
-
-        $addresses = Address::findOrfail($user->id);
-        $addresses->phone = $data['phone'] ;
-        $addresses->save();
-
    
+
     }
 
     /**

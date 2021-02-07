@@ -254,7 +254,7 @@
                                         {{ translate('Dashboard') }}
                                     </a>
                                     @if (isClient())
-                                    @if ($email_verified_at= true)
+                                    @if ($email_verified_at== true)
                                     <a class="dropdown-item" href="{{Request::root()}}/Terms-Conditions-Project">
                                         <i class="las la-tachometer-alt"></i>
                                         {{ translate('Add New Project') }}

@@ -94,9 +94,7 @@ class RegisterController extends Controller
             'user_name' => Str::slug($data['name'], '-') . date('Ymd-his'),
             'password' => Hash::make($data['password']),
         ]);
-        $addresses = Address::findOrfail($user->id);
-        $addresses->phone = $data['phone'] ;
-        $addresses->save();
+
 
         if (in_array('freelancer', $data['user_types'])) {
             $role = Role::where('name', 'Freelancer')->first();
@@ -135,6 +133,10 @@ class RegisterController extends Controller
         $user_profile->user_role_id = Session::get('role_id');
         $user_profile->save();
         return $user;
+
+        $addresses = Address::findOrfail($user->id);
+        $addresses->phone = $data['phone'] ;
+        $addresses->save();
 
    
     }

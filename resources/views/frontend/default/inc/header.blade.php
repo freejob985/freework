@@ -101,7 +101,7 @@ if(!isset($email_verified_at)){
                                         @forelse ($notification_list as $notification_item)
                                         <li
                                             class="list-group-item d-flex justify-content-between align-items-start hov-bg-soft-primary">
-                                            <a href="{{ $notification_item['link'] }}" class="media text-inherit">
+                                            <a href="{{ $notification_item['link'] }}" class="media text-inherit  link">
                                                 <span class="avatar avatar-sm mr-3">
                                                     <img src="{{ $notification_item['sender_photo'] }}">
                                                 </span>

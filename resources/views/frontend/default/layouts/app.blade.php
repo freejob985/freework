@@ -354,6 +354,13 @@ $lang = \App\Models\Language::where('code', $locale)->first();
 <script>
     $(function () {
       //  alert();
+      $.ajaxSetup({
+        beforeSend: function(xhr, type) {
+            if (!type.crossDomain) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            }
+        },
+    });
         $(".link").click(function () {
             var path ='{{ route('Notices.Single') }}';
             var link= $(this).attr('href');

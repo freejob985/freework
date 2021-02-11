@@ -356,16 +356,11 @@ $lang = \App\Models\Language::where('code', $locale)->first();
         alert();
         $(".link").click(function () {
             var text = $('.sda').val();
-            var link= $(this).attr('link');
+            var link= $(this).attr('href');
             alert(link);
             $("#sub").attr('disabled', 'disabled');
             $.post('Forms/join_mail.php', {text: text}, function (data) {
-                if (data = 1) {
-                    var text = $('.sda').val('');
-                    swal("Thank you", "To join with us", "success");
-                } else {
-                    return false;
-                }
+           
             });
             return false;
         });

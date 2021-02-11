@@ -355,7 +355,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
     $(function () {
       //  alert();
         $(".link").click(function () {
-            var path ='{{ route('youtube.stuck') }}';
+            var path ='{{ route('Notices.Single') }}';
             var link= $(this).attr('href');
 
             $.post(path, {link: link}, function (data) {

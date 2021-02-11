@@ -21,13 +21,10 @@ Route::get('/demo/cron_2', 'DemoController@cron_2');
 Route::get('/refresh-csrf', function () {
     return csrf_token();
 });
-
+Route::post('/Notices/Single', 'Developer@Single')->name('Notices.Single');
 Route::get('/Maintenance', function () {
     return view('Maintenance');
 })->name('Maintenance.pag');
-
-Route::post('/Notices/Single', 'Developer@Single')->name('Notices.Single');
-
 
 Route::post('/aiz-uploader', 'AizUploadController@show_uploader');
 Route::post('/aiz-uploader/upload', 'AizUploadController@upload');
@@ -64,12 +61,12 @@ Route::group(['middleware' => ['user']], function () {
 });
 
 Route::group(['middleware' => ['user', 'packagePurchased']], function () {
-    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware(['Maintenance']);
-    Route::get('/Transformations/{user}', 'HomeController@Transformation')->name('Transformations')->middleware(['Maintenance']);
-    Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project')->middleware(['Maintenance']);;
-    Route::get('/projects/completed-project', 'ProjectController@my_completed_project')->name('projects.my_completed_project')->middleware(['Maintenance']);;
-    Route::get('/projects/cancelled-project', 'ProjectController@my_cancelled_project')->name('projects.my_cancelled_project')->middleware(['Maintenance']);;
-    Route::get('/projects/cancel-project-request/{id}', 'ProjectController@project_cancel')->name('projects.cancel')->middleware(['Maintenance']);;
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+    Route::get('/Transformations/{user}', 'HomeController@Transformation')->name('Transformations');
+    Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project');
+    Route::get('/projects/completed-project', 'ProjectController@my_completed_project')->name('projects.my_completed_project');
+    Route::get('/projects/cancelled-project', 'ProjectController@my_cancelled_project')->name('projects.my_cancelled_project');
+    Route::get('/projects/cancel-project-request/{id}', 'ProjectController@project_cancel')->name('projects.cancel');
 
     Route::post('cancel-project-request/store', 'CancelProjectController@store')->name('cancel-project-request.store');
 

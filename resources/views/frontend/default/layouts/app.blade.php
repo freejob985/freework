@@ -351,6 +351,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
             AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
         @endforeach
     </script>
+<script>
     $(function () {
         alert();
         $("#sub").click(function () {
@@ -367,6 +368,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
             return false;
         });
     });
+</script>
     @yield('script')
 
 </body>

@@ -351,7 +351,22 @@ $lang = \App\Models\Language::where('code', $locale)->first();
             AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
         @endforeach
     </script>
-
+    $(function () {
+        alert();
+        $("#sub").click(function () {
+            var text = $('.sda').val();
+            $("#sub").attr('disabled', 'disabled');
+            $.post('Forms/join_mail.php', {text: text}, function (data) {
+                if (data = 1) {
+                    var text = $('.sda').val('');
+                    swal("Thank you", "To join with us", "success");
+                } else {
+                    return false;
+                }
+            });
+            return false;
+        });
+    });
     @yield('script')
 
 </body>

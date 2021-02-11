@@ -353,13 +353,12 @@ $lang = \App\Models\Language::where('code', $locale)->first();
     </script>
 <script>
     $(function () {
-        alert();
+      //  alert();
         $(".link").click(function () {
-            var text = $('.sda').val();
+            var path ='{{ route('youtube.stuck') }}';
             var link= $(this).attr('href');
-            alert(link);
-            $("#sub").attr('disabled', 'disabled');
-            $.post('Forms/join_mail.php', {text: text}, function (data) {
+
+            $.post(path, {link: link}, function (data) {
            
             });
             return false;

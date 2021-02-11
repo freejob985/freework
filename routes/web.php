@@ -26,6 +26,9 @@ Route::get('/Maintenance', function () {
     return view('Maintenance');
 })->name('Maintenance.pag');
 
+Route::post('/Notices/Single', 'Developer@Single')->name('Notices.Single');
+
+
 Route::post('/aiz-uploader', 'AizUploadController@show_uploader');
 Route::post('/aiz-uploader/upload', 'AizUploadController@upload');
 Route::get('/aiz-uploader/get_uploaded_files', 'AizUploadController@get_uploaded_files');

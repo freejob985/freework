@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use App\User;
 use App\Utility\EmailUtility;
 use App\Utility\NotificationUtility;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
-use App\Models\Service;
-
-
-
 
 class Developer extends Controller
 {
@@ -22,6 +19,10 @@ class Developer extends Controller
         return view('admin.default.Developer.rejection', compact('id', 'prog', 'services'));
     }
 
+    public function Single(Request $request)
+    {
+        dd($request->all());
+    }
     public function Reasons_send(Request $request)
     {
         $this->validate($request, [
@@ -42,7 +43,7 @@ class Developer extends Controller
         // dd($slug_services);------------------------------------------
         $email = DB::table('users')->where('id', $id)->value('email');
         if ($services == "services") {
-           // route('service.edit', $service->slug);
+            // route('service.edit', $service->slug);
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
                 $msg,
@@ -52,17 +53,16 @@ class Developer extends Controller
                 'freelancer'
             );
         } else {
-          //  route('projects.edit',)
+            //  route('projects.edit',)
             NotificationUtility::set_notification(
                 "Project_rejected",
                 $msg,
-                env('APP_URL')."/projects/".encrypt($prog)."/edit",
+                env('APP_URL') . "/projects/" . encrypt($prog) . "/edit",
                 $id,
                 1,
                 'client'
             );
 
-            
             EmailUtility::send_email(
                 "Notice of project rejection",
                 $msg,
@@ -91,20 +91,17 @@ class Developer extends Controller
 
     public function project_approval(Request $request)
     {
-   // dd($request->status);
+        // dd($request->status);
         $project = Service::findOrFail($request->id);
-   
+
         $project->project_approval = $request->status;
-        if($project->save()){
+        if ($project->save()) {
             //dd("Catch errors for script and full tracking ( 1 )");
             return 1;
-        }
-        else {
-        //    dd("Catch errors for script and full tracking ( 2 )");
+        } else {
+            //    dd("Catch errors for script and full tracking ( 2 )");
             return 0;
         }
     }
-
-
 
 }

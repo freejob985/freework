@@ -219,7 +219,7 @@
                                                     @else
                                                         <span class="text-body mr-1">{{ $project->bids }}</span>
                                                     @endif
-                                                    <span>Bids</span>
+                                                    <span>اجمالي العروض</span>
                                                 </div>
 
                                                 <div class="mt-xl-2 small text-secondary">

@@ -211,12 +211,12 @@
             dataType: "json",
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
-                var id = res[0].id;
+                var ids = res[0].id;
                 var project_id = res[0].project_id;
                 var amount = res[0].amount;
                 var message = res[0].message;
                 var execute = res[0].execute;
-                $('.id').val(id);
+                $('.id').val(ids);
                 $('.project_id').val(project_id);
                 $('.amount').val(amount);
                 $('.message').val(message);

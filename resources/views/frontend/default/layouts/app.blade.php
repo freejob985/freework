@@ -364,7 +364,8 @@ $lang = \App\Models\Language::where('code', $locale)->first();
         $(".link").click(function () {
             var path ='{{ route('Notices.Single') }}';
             var link= $(this).attr('href');
-
+            var link=link.replace({{Request::root()}},"");
+            alert(link);
             $.post(path, {link: link}, function (data) {
              console.log(data);
              alert("true");

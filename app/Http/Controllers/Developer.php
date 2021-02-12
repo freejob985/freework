@@ -33,7 +33,7 @@ class Developer extends Controller
 
          $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
         if (empty($id)) {
- echo           $id = DB::table('notifications')->where('receiver_id', $user)->limit(1)->value('id');
+ echo           $id = DB::table('notifications')->where('receiver_id', $user)->value('id');
         }
         DB::table('notifications')
             ->where('id', $id)

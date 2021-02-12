@@ -13,15 +13,26 @@ use Illuminate\Http\Request;
 class Developer extends Controller
 {
 
-  
-    
-    public function Bids(Request $request){
-        $project_bids=DB::table('project_bids')->where('id',$request->input('id'))->orderBy('id','desc')->get();
+    public function Bids_Modification(Request $request)
+    {
 
-  //      return     json_encode(array_shift($project_bids));
-      return response()->json($project_bids, 200);
-       //  dd( response()->json($project_bids, 200));
-        
+        DB::table('project_bids')
+            ->where('id', $request->input('id'))
+            ->update([
+                'amount' => $request->input('amount'),
+                'message' => $request->input('message'),
+                'execute' => $request->input('execute'),    
+            ]);
+    }
+
+    public function Bids(Request $request)
+    {
+        $project_bids = DB::table('project_bids')->where('id', $request->input('id'))->orderBy('id', 'desc')->get();
+
+        //      return     json_encode(array_shift($project_bids));
+        return response()->json($project_bids, 200);
+        //  dd( response()->json($project_bids, 200));
+
     }
 
     public function Reasons($id, $prog, $services = null)
@@ -42,8 +53,8 @@ class Developer extends Controller
 
         $user = Auth::user()->id;
 
-        echo $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->where('seen_by_receiver', '!=' , 1)->value('id');
-      
+        echo $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->where('seen_by_receiver', '!=', 1)->value('id');
+
         DB::table('notifications')
             ->where('id', $id)
             ->update(['seen_by_receiver' => "1"]);

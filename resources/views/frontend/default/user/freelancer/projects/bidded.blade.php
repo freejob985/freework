@@ -205,10 +205,11 @@
              },
             url: ajax_url,
             type: "POST",
+            dataType: "json",
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
-                var result = $.parseJSON(res);
-alert(result);
+               // var result = $.parseJSON(res);
+alert(res.id);
           //     var id =res.id;
             //   var project_id=res.project_id;
               // var   amount=res.amount;

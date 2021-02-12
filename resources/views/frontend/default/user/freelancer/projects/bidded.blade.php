@@ -216,7 +216,7 @@
                 var amount = res[0].amount;
                 var message = res[0].message;
                 var execute = res[0].execute;
-                $('.ids').val(id);
+                $('.ids').text(id);
                 $('.project_id').val(project_id);
                 $('.amount').val(amount);
                 $('.message').val(message);

@@ -221,6 +221,14 @@
                                                     @endif
                                                     <span>Bids</span>
                                                 </div>
+
+                                                <div class="mt-xl-2 small text-secondary">
+                                                  
+                                
+                                                        <span class="text-body mr-1">{{ $project->execute }}</span>
+                                     
+                                                    <span>مدة التنيفذ</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <div class="d-flex align-items-center">

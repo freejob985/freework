@@ -149,7 +149,7 @@
             <div class="modal-body">
                 <form action="{{ route('Bids.Modification') }}" method="POST" >
                     @csrf
-                <input type="hidden"  class="form-control form-control-sm amount id" name="id"
+                <input type="hidden"  class="form-control form-control-sm amount ids" name="id"
                 placeholder="السعر" required>
                 <div class="form-group">
                     <label class="form-label">
@@ -216,7 +216,7 @@
                 var amount = res[0].amount;
                 var message = res[0].message;
                 var execute = res[0].execute;
-                $('.id').val(ids);
+                $('.ids').val(ids);
                 $('.project_id').val(project_id);
                 $('.amount').val(amount);
                 $('.message').val(message);

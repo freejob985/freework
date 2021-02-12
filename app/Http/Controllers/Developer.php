@@ -31,12 +31,8 @@ class Developer extends Controller
 
         $user = Auth::user()->id;
 
-        $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
-        if ($id=="") {
-            echo "ok";
-        } else {
-            echo "NO";
-        }
+        echo $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
+      
         DB::table('notifications')
             ->where('id', $id)
             ->update(['seen_by_receiver' => "1"]);

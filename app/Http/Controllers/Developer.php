@@ -18,19 +18,22 @@ class Developer extends Controller
 
         return view('admin.default.Developer.rejection', compact('id', 'prog', 'services'));
     }
-    public    function remove_words($words)
+    public function remove_words($words)
     {
-        $url="/http://sub.digi-gate.com/";
+        $url = "/http://sub.digi-gate.com/";
         $words = preg_replace($url, '', $words); // remove numbers
         return trim($words);
     }
     public function Single(Request $request)
     {
 
+        $parts = explode('/', $request->input('link'));
+        $parts_i_want = array_slice($parts, 6); // take everything from offset=6 on
+        $path = implode('/', $parts_i_want);
+        dd($path);
 
-       $link=$this->remove_words($request->input('link'));
-       $user=Auth::user()->id;
-       $id = DB::table('notifications')->where('receiver_id',$user )->where('link',$link)->value('id');
+        $user = Auth::user()->id;
+        $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $link)->value('id');
 
         dd($id);
     }

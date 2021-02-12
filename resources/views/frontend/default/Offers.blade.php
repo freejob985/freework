@@ -156,9 +156,11 @@
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
                     <p>
-                     <span><img src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b"></span>   
-                        <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم &nbsp; &nbsp;
-                            &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
+                     <span><img style="width: 7%;" src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b"> العرض المقدم:{{ $item_project_bids->amount}}</span>   
+                     <span><img style="width: 7%;" src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b">  مدة التنفيذ:{{ $item_project_bids->execute}}</span>   
+
+                        {{--  <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم &nbsp; &nbsp;
+                            &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>  --}}
                     </p>
                 </p>
 

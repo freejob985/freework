@@ -99,7 +99,7 @@
                                                 <h4 class="mb-0 h6 fs-13">{{ single_price($bidded_project->amount) }}</h4>
                                             </li>
                                             <li class="border-right mr-2 pr-2">
-                                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal" id_pro="{{ $bidded_project->id }}">تعديل</button>
+                                                <button type="button" class="btn btn-info btn-xs bidded_project" data-toggle="modal" data-target="#myModal" id_pro="{{ $bidded_project->id }}">تعديل</button>
                                             </li>
                                         </ul>
     								</div>
@@ -171,4 +171,34 @@
 
   </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+          $(".bidded_project").click(function(){
+          var day=  this.attr('id_pro');
+          alert(day);
+        //  var ajax_url = '{{ route('data.send') }}';
+          jQuery.ajax({
+            beforeSend: function (xhr) { 
+              $('.text-center').show();
+              // Add this line
+                    xhr.setRequestHeader('X-CSRF-Token', $('[name="_csrfToken"]').val());
+             },
+            url: ajax_url,
+            type: "POST",
+            data: {"day":day,"_token": '{{ csrf_token() }}'},
+            success: function (res) {
+              $('.text-center').hide();
+              $('.front').html(res);
+            },
+          });
+
+          });
+        });
+</script>
+
+
+
 @endsection

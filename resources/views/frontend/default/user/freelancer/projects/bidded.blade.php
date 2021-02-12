@@ -111,9 +111,25 @@
                                         <h4 class="mb-0 h6 fs-13">{{ single_price($bidded_project->amount) }}</h4>
                                     </li>
                                     <li class="border-right mr-2 pr-2">
+
+                                        @if (\App\Models\ProjectUser::where('project_id',
+                                        $bidded_project->project_id)->where('user_id', Auth::user()->id)->first() != null)
                                         <button type="button" class="btn btn-info btn-xs bidded_project"
-                                            data-toggle="modal" data-target="#myModal"
-                                            id_pro="{{ $bidded_project->id }}">تعديل</button>
+                                        data-toggle="modal" data-target="#myModal"
+                                        id_pro="{{ $bidded_project->id }}" disabled>تعديل</button>
+                                        @elseif(\App\Models\ProjectUser::where('project_id',
+                                        $bidded_project->project_id)->first() != null)
+                                        <button type="button" class="btn btn-info btn-xs bidded_project"
+                                        data-toggle="modal" data-target="#myModal"
+                                        id_pro="{{ $bidded_project->id }}" disabled>تعديل</button>
+                                        @else
+                                        <button type="button" class="btn btn-info btn-xs bidded_project"
+                                        data-toggle="modal" data-target="#myModal"
+                                        id_pro="{{ $bidded_project->id }}">تعديل</button>
+                                        @endif
+
+
+                                  
                                     </li>
                                 </ul>
                             </div>

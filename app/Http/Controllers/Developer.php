@@ -29,9 +29,9 @@ class Developer extends Controller
 
        $link=$this->remove_words($request->input('link'));
        $user=Auth::user()->id;
-       $id = DB::table('notifications')->where('receiver_id',$user )->where('Title', $request->input('Title'))->value('Title');
+       $id = DB::table('notifications')->where('receiver_id',$user )->where('link',$link)->value('id');
 
-        dd($request->all());
+        dd($id);
     }
     public function Reasons_send(Request $request)
     {

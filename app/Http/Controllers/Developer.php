@@ -30,7 +30,7 @@ class Developer extends Controller
         $parts = explode('/', $request->input('link'));
         $parts_i_want = array_slice($parts, 6); // take everything from offset=6 on
         $path = implode('/', $parts_i_want);
-        dd($path);
+        dd($request->input('link'));
 
         $user = Auth::user()->id;
         $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $link)->value('id');

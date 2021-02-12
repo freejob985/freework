@@ -132,7 +132,8 @@
 <hr>
 <div class="container">
     <div class="be-comment-block">
-        <h1 class="comments-title">اجمالي العروض المقدمة ({{  DB::table('project_bids')->where('project_id',$project->id)->count()}})</h1>
+        <h1 class="comments-title">اجمالي العروض المقدمة
+            ({{  DB::table('project_bids')->where('project_id',$project->id)->count()}})</h1>
         @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as
         $item_project_bids)
         <div class="be-comment">
@@ -155,6 +156,7 @@
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
                     <p>
+                     <span><img src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b"></span>   
                         <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم &nbsp; &nbsp;
                             &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
                     </p>

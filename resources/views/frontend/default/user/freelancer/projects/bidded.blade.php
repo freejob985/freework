@@ -99,7 +99,7 @@
                                                 <h4 class="mb-0 h6 fs-13">{{ single_price($bidded_project->amount) }}</h4>
                                             </li>
                                             <li class="border-right mr-2 pr-2">
-                                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">تعديل</button>
+                                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal" id_pro="{{ $bidded_project->id }}">تعديل</button>
                                             </li>
                                         </ul>
     								</div>

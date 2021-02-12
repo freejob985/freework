@@ -179,7 +179,7 @@
           $(".bidded_project").click(function(){
           var day=  this.attr('id_pro');
           alert(day);
-        //  var ajax_url = '{{ route('data.send') }}';
+
           jQuery.ajax({
             beforeSend: function (xhr) { 
               $('.text-center').show();

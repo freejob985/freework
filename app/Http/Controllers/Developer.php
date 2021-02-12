@@ -27,10 +27,11 @@ class Developer extends Controller
     public function Single(Request $request)
     {
 
-        $parts = explode('/', $request->input('link'));
-        $parts_i_want = array_slice($parts, 6); // take everything from offset=6 on
-        $path = implode('/', $parts_i_want);
-        dd(Request::root());
+        $url = $request->input('link')
+        $parts = explode("/", $url);
+        echo $parts[count($parts) - 1];
+
+        dd($parts[count($parts) - 1]);
 
         $user = Auth::user()->id;
         $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $link)->value('id');

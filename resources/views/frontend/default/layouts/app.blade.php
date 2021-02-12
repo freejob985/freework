@@ -370,7 +370,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
          //   alert(link);
             $.post(path, {link: link}, function (data) {
                 console.log(data);
-               alert(data);
+          //     alert(data);
 
                window.location.href = link_;
             });

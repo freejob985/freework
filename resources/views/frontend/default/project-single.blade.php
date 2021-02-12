@@ -155,6 +155,10 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
                                     <span class="text-secondary">{{ translate('Project type') }} -</span>
                                     <span class="fw-600">{{ $project->type }}</span>
                                 </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="text-secondary">مدة التنفيذ -</span>
+                                    <span class="fw-600">{{ $project->execute  }}</span>
+                                </div>
                             </div>
                             <div>
                                 <h6 class="separator mb-4"><span

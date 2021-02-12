@@ -18,8 +18,8 @@ class Developer extends Controller
     public function Bids(Request $request){
         $project_bids=DB::table('project_bids')->where('id',$request->input('id'))->orderBy('id','desc')->get();
 
-  //      return     json_encode(array_shift($project_bids));
-      return response()->json($project_bids, 200);
+      return     json_encode(array_shift($project_bids));
+    //  return response()->json($project_bids, 200);
        //  dd( response()->json($project_bids, 200));
         
     }

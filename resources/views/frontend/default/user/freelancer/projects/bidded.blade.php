@@ -207,7 +207,17 @@
             type: "POST",
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
-                alert(res);
+
+               var id =res.id;
+               var project_id=res.project_id;
+               var   amount=res.amount;
+               var   message=res.message;
+                var   execute=res.execute;
+
+
+                alert(message);
+
+
      
             },
           });
@@ -219,4 +229,3 @@
 
 
 @endsection
-

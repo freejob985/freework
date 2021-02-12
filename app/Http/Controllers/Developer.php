@@ -20,7 +20,8 @@ class Developer extends Controller
     }
     public    function remove_words($words)
     {
-        $words = preg_replace('/http://sub.digi-gate.com/', '', $words); // remove numbers
+        $url="/http://sub.digi-gate.com/";
+        $words = preg_replace($url, '', $words); // remove numbers
         return trim($words);
     }
     public function Single(Request $request)

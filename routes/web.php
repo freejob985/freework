@@ -28,7 +28,7 @@ Route::get('/Maintenance', function () {
 
 Route::post('/Notices/Single', 'Developer@Single')->name('Notices.Single');
 Route::post('/Bids/Single', 'Developer@Bids')->name('Bids.Single');
-Route::post('/Bids/Modification', 'Developer@Bids_Modification')->name('Bids.Single');
+Route::post('/Bids/Modification', 'Developer@Bids_Modification')->name('Bids.Modification');
 
 Route::post('/aiz-uploader', 'AizUploadController@show_uploader');
 Route::post('/aiz-uploader/upload', 'AizUploadController@upload');

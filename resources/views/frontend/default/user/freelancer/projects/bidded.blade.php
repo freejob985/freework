@@ -147,7 +147,8 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" >
+                <form action="{{ route('Bids.Modification') }}" method="POST" >
+                    @csrf
                 <input type="hidden"  class="form-control form-control-sm amount id" name="id"
                 placeholder="السعر" required>
                 <div class="form-group">
@@ -211,7 +212,6 @@
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
                 var id = res[0].id;
-                alert(id);
                 var project_id = res[0].project_id;
                 var amount = res[0].amount;
                 var message = res[0].message;
@@ -221,9 +221,6 @@
                 $('.amount').val(amount);
                 $('.message').val(message);
                 $('.execute').val(execute);
-
-
-     
             },
           });
 

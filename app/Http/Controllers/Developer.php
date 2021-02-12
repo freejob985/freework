@@ -21,8 +21,10 @@ class Developer extends Controller
             ->update([
                 'amount' => $request->input('amount'),
                 'message' => $request->input('message'),
-                'execute' => $request->input('execute'),    
+                'execute' => $request->input('execute'),
             ]);
+        return redirect()->back()->with('alert-success', 'The data was saved successfully');
+
     }
 
     public function Bids(Request $request)

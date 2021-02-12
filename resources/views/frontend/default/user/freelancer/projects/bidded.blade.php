@@ -195,7 +195,7 @@
     $(document).ready(function(){
           $(".bidded_project").click(function(){
           var id=   $(this).attr('id_pro');
- alert(day);
+ alert(id);
 
 
 

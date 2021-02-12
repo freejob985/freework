@@ -28,15 +28,10 @@ class Developer extends Controller
     {
 
         $url = $request->input('link');
-        $parts = explode("/", $url);
-        echo $parts[count($parts) - 1];
-
-        dd($parts[count($parts) - 1]);
 
         $user = Auth::user()->id;
-        $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $link)->value('id');
-
-        dd($id);
+        $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $url)->value('id');
+        echo $id;
     }
     public function Reasons_send(Request $request)
     {

@@ -367,8 +367,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
             var link=link.replace("{{Request::root()}}","");
             alert(link);
             $.post(path, {link: link}, function (data) {
-             console.log(data);
-             alert("true");
+            alert(data);
            
             });
             return false;

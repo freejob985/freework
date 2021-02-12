@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 class Developer extends Controller
 {
 
+
+    public function Bids(Request $request){
+         dd($request->all());
+        
+    }
+
     public function Reasons($id, $prog, $services = null)
     {
 

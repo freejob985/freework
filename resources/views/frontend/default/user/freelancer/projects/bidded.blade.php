@@ -195,9 +195,22 @@
     $(document).ready(function(){
           $(".bidded_project").click(function(){
           var id=   $(this).attr('id_pro');
- alert(id);
 
-
+          var ajax_url = '{{ route('Bids.Single') }}';
+          jQuery.ajax({
+            beforeSend: function (xhr) { 
+              $('.text-center').show();
+              // Add this line
+                    xhr.setRequestHeader('X-CSRF-Token', $('[name="_csrfToken"]').val());
+             },
+            url: ajax_url,
+            type: "POST",
+            data: {"id":id,"_token": '{{ csrf_token() }}'},
+            success: function (res) {
+                alert(res);
+     
+            },
+          });
 
           });
         });
@@ -206,3 +219,4 @@
 
 
 @endsection
+

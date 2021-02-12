@@ -31,7 +31,7 @@ class Developer extends Controller
 
         $user = Auth::user()->id;
 
-        echo $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
+        echo $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->where('seen_by_receiver', '!=' , 1)->value('id');
       
         DB::table('notifications')
             ->where('id', $id)

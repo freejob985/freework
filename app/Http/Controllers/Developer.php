@@ -16,7 +16,7 @@ class Developer extends Controller
     public function Bids_Modification(Request $request)
     {
 
-        dd($request->all());
+      //  dd($request->all());
         DB::table('project_bids')
             ->where('id', $request->input('id'))
             ->update([

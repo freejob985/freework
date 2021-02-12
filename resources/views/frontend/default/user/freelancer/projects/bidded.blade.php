@@ -147,13 +147,15 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
+                <input type="hidden"  class="form-control form-control-sm amount id" name="id"
+                placeholder="السعر" required>
                 <div class="form-group">
                     <label class="form-label">
                         {{translate('Place Bid Price')}}
                         <span class="text-danger">*</span>
                     </label>
                     <div class="form-group">
-                        <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="amount"
+                        <input type="number" min="0" step="0.01" class="form-control form-control-sm amount" name="amount"
                             placeholder="السعر" required>
                     </div>
                 </div>
@@ -163,7 +165,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="form-group">
-                        <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="execute"
+                        <input type="number" min="0" step="0.01" class="form-control form-control-sm execute" name="execute"
                             placeholder="مدة التنفيذ" required>
                     </div>
                 </div>
@@ -173,7 +175,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" name="message" required></textarea>
+                        <textarea class="form-control message" rows="3" name="message" required></textarea>
                     </div>
                 </div>
                 <div class="form-group text-right">
@@ -209,6 +211,17 @@
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
                 var id = res[0].id;
+                var project_id = res[0].project_id;
+                var amount = res[0].amount;
+                var message = res[0].message;
+                var execute = res[0].execute;
+                $('.id').val();
+                $('.project_id').val(id);
+                $('.amount').val(amount);
+                $('.message').val(message);
+                $('.execute').val(execute);
+
+
 
                // var result = $.parseJSON(res);
 alert(id);

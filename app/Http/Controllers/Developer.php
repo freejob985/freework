@@ -18,9 +18,19 @@ class Developer extends Controller
 
         return view('admin.default.Developer.rejection', compact('id', 'prog', 'services'));
     }
-
+    public    function remove_words($words)
+    {
+        $words = preg_replace('/http://sub.digi-gate.com/', '', $words); // remove numbers
+        return trim($words);
+    }
     public function Single(Request $request)
     {
+
+
+       $link=$this->remove_words($request->input('link'));
+       $user=Auth::user()->id;
+       $id = DB::table('notifications')->where('receiver_id',$user )->where('Title', $request->input('Title'))->value('Title');
+
         dd($request->all());
     }
     public function Reasons_send(Request $request)

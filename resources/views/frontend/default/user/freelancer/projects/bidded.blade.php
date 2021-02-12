@@ -180,20 +180,7 @@
           var day=  this.attr('id_pro');
           alert(day);
 
-          jQuery.ajax({
-            beforeSend: function (xhr) { 
-              $('.text-center').show();
-              // Add this line
-                    xhr.setRequestHeader('X-CSRF-Token', $('[name="_csrfToken"]').val());
-             },
-            url: ajax_url,
-            type: "POST",
-            data: {"day":day,"_token": '{{ csrf_token() }}'},
-            success: function (res) {
-              $('.text-center').hide();
-              $('.front').html(res);
-            },
-          });
+
 
           });
         });

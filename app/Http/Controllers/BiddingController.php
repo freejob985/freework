@@ -41,6 +41,7 @@ class BiddingController extends Controller
             $bid->bid_by_user_id = Auth::user()->id;
             $bid->amount = $request->amount;
             $bid->message = $request->message;
+            $bid->execute = $request->execute;
             $bid->save();
 
             $project = Project::where('id',$request->project_id)->first();

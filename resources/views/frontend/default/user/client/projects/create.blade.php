@@ -31,6 +31,15 @@
                                         <input type="text" class="form-control" name="name" placeholder="Enter project title">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-label">
+                                       مدة التنفيذ
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="execute" placeholder="مدة التنفيذ">
+                                    </div>
+                                </div>
                                 <div class="form-group" style="display:none;">
                                     <div class="form-label mb-2">
                                         {{ translate('Project type') }}

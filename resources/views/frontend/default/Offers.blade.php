@@ -132,7 +132,7 @@
 <hr>
 <div class="container">
     <div class="be-comment-block">
-        <h1 class="comments-title">اجمالي العروض المقدمة ({{ $development = DB::table('development')->where('project_id',$project->id)->count()}})</h1>
+        <h1 class="comments-title">اجمالي العروض المقدمة ({{  DB::table('project_bids')->where('project_id',$project->id)->count()}})</h1>
         @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as
         $item_project_bids)
         <div class="be-comment">

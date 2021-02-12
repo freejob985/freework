@@ -155,7 +155,7 @@
                             <span class="text-danger">*</span>
                         </label>
                         <div class="form-group">
-                            <input type="number"class="form-control form-control-sm id" name="id"
+                            <input type="hidden"class="form-control form-control-sm id" name="id"
                               >
                         </div>
                     </div>

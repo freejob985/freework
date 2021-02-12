@@ -215,10 +215,6 @@ alert(result['message']);
                //var   message=res.message;
                 //var   execute=res.execute;
 
-                $.each(res, function (k, v) {
-                    console.log(k + " : " + v);
-                  });
-
 
 
                 //alert(message);

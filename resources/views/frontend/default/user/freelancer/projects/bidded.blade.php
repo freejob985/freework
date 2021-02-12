@@ -133,7 +133,36 @@
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <div class="form-group">
+            <label class="form-label">
+                {{translate('Place Bid Price')}}
+                <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+                <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="amount" placeholder="السعر" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                مدة التنفيذ
+                <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+                <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="execute" placeholder="مدة التنفيذ" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                {{translate('Cover Letter')}}
+                <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+                <textarea class="form-control" rows="3" name="message" required></textarea>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            <button type="submit" class="btn btn-sm btn-primary transition-3d-hover mr-1">{{ translate('Submit') }}</button>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

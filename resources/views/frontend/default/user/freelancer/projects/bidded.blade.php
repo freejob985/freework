@@ -150,7 +150,9 @@
                 <form action="{{ route('Bids.Modification') }}" method="POST" >
                     @csrf
                     <div class="form-group">
-                        <label class="form-label">
+                        <label class="form-label" style="
+                        display: none;
+                    ">
                            الرقم التعريفي
                             <span class="text-danger">*</span>
                         </label>

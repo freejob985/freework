@@ -211,6 +211,7 @@
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
                 var id = res[0].id;
+                alert(id);
                 var project_id = res[0].project_id;
                 var amount = res[0].amount;
                 var message = res[0].message;

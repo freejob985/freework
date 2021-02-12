@@ -27,17 +27,17 @@ class Developer extends Controller
     public function Single(Request $request)
     {
 
-           $url = $request->input('link');
+        $url = $request->input('link');
 
         $user = Auth::user()->id;
 
-
-
-        echo   $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
-        
+         $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
+        if (empty($id)) {
+            $id = DB::table('notifications')->where('receiver_id', $user)->value('id');
+        }
         DB::table('notifications')
-        ->where('id',  $id )
-        ->update(['seen_by_receiver' => "1"]);
+            ->where('id', $id)
+            ->update(['seen_by_receiver' => "1"]);
     }
     public function Reasons_send(Request $request)
     {

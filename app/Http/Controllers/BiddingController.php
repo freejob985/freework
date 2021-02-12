@@ -45,6 +45,7 @@ class BiddingController extends Controller
 
             $project = Project::where('id',$request->project_id)->first();
             $project->bids ++;
+            $project->bids ++;
             $project->save();
 
             //from freelancer to client

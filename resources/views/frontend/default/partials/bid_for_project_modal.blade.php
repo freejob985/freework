@@ -9,7 +9,16 @@
             <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-            <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="amount" placeholder="Enter your price" required>
+            <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="amount" placeholder="السعر" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label">
+            مدة التنفيذ
+            <span class="text-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="execute" placeholder="مدة التنفيذ" required>
         </div>
     </div>
     <div class="form-group">

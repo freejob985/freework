@@ -149,8 +149,16 @@
             <div class="modal-body">
                 <form action="{{ route('Bids.Modification') }}" method="POST" >
                     @csrf
-                <input type="hidden"  class="form-control form-control-sm amount ids" name="id"
-                placeholder="السعر" required>
+                    <div class="form-group">
+                        <label class="form-label">
+                           الرقم التعريفي
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="form-group">
+                            <input type="number"class="form-control form-control-sm id" name="id"
+                              >
+                        </div>
+                    </div>
                 <div class="form-group">
                     <label class="form-label">
                         {{translate('Place Bid Price')}}

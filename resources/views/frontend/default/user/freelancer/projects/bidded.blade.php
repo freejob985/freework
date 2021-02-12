@@ -222,20 +222,6 @@
                 $('.execute').val(execute);
 
 
-
-               // var result = $.parseJSON(res);
-alert(id);
-          //     var id =res.id;
-            //   var project_id=res.project_id;
-              // var   amount=res.amount;
-               //var   message=res.message;
-                //var   execute=res.execute;
-
-
-
-                //alert(message);
-
-
      
             },
           });

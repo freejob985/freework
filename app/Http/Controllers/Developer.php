@@ -31,7 +31,9 @@ class Developer extends Controller
 
         $user = Auth::user()->id;
         $id = DB::table('notifications')->where('receiver_id', $user)->where('link', $url)->value('id');
-        echo $id;
+        DB::table('notifications')
+        ->where('id',  $id )
+        ->update(['seen_by_receiver' => "1"]);
     }
     public function Reasons_send(Request $request)
     {

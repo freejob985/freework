@@ -208,11 +208,16 @@
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
 
-               var id =res.id;
-               var project_id=res.project_id;
-               var   amount=res.amount;
-               var   message=res.message;
-                var   execute=res.execute;
+          //     var id =res.id;
+            //   var project_id=res.project_id;
+              // var   amount=res.amount;
+               //var   message=res.message;
+                //var   execute=res.execute;
+
+                $.each(res, function (k, v) {
+                    console.log(k + " : " + v);
+                  });
+
 
 
                 alert(message);

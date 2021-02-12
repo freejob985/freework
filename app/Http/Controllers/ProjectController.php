@@ -203,6 +203,7 @@ class ProjectController extends Controller
             $project->attachment = $request->attachments;
             $project->client_user_id = Auth::user()->id;
             $project->slug = Str::slug($request->name, '-') . date('Ymd-his');
+            $project->execute = $request->execute;
             $project->save();
 
             //to admin

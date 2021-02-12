@@ -147,6 +147,7 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
+                <form action="" method="POST" >
                 <input type="hidden"  class="form-control form-control-sm amount id" name="id"
                 placeholder="السعر" required>
                 <div class="form-group">
@@ -182,10 +183,9 @@
                     <button type="submit"
                         class="btn btn-sm btn-primary transition-3d-hover mr-1">{{ translate('Submit') }}</button>
                 </div>
+            </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+   
         </div>
 
     </div>

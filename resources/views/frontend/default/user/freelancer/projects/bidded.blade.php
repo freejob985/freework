@@ -208,8 +208,10 @@
             dataType: "json",
             data: {"id":id,"_token": '{{ csrf_token() }}'},
             success: function (res) {
+                var id = res[0].id;
+
                // var result = $.parseJSON(res);
-alert(res.id);
+alert(id);
           //     var id =res.id;
             //   var project_id=res.project_id;
               // var   amount=res.amount;

@@ -60,6 +60,13 @@
                             <span class="align-middle">{{ $project->type }}</span>
                         </div>
                         <!-- End Posted -->
+                        <!-- Posted -->
+                        <div class="mb-3 mb-md-0">
+                            <h4 class="small text-secondary mb-0">مدة التنفيذ</h4>
+                            <small class="fas fa-briefcase text-secondary align-middle mr-1"></small>
+                            <span class="align-middle">{{ $project->execute }}</span>
+                        </div>
+                        <!-- End Posted -->
                     </div>
                 </div>
                 <div class="card p-4 shadow-soft mb-5">

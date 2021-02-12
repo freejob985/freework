@@ -31,9 +31,11 @@ class Developer extends Controller
 
         $user = Auth::user()->id;
 
-         $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
+        $id = DB::table('notifications')->where('receiver_id', $user)->where('link', 'like', '%' . $url . '%')->value('id');
         if (empty($id)) {
- echo           $id = DB::table('notifications')->where('receiver_id', $user)->value('id');
+            echo "ok";
+        } else {
+            echo "NO";
         }
         DB::table('notifications')
             ->where('id', $id)

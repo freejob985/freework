@@ -27,7 +27,7 @@ class Developer extends Controller
     public function Single(Request $request)
     {
 
-        $url = $request->input('link')
+        $url = $request->input('link');
         $parts = explode("/", $url);
         echo $parts[count($parts) - 1];
 

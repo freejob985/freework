@@ -1,4 +1,4 @@
-@dd("Catch errors for script and full tracking ( 1 )");
+
 
 
 @extends('frontend.default.layouts.app')

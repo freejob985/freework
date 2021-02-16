@@ -129,6 +129,7 @@ class ProjectController extends Controller
 
     public function my_completed_project()
     {
+        dd(1);
         if (isClient()) {
             $projects = Project::where('client_user_id', Auth::user()->id)->closed()->latest()->paginate(10);
             return view('frontend.default.user.client.projects.my_completed_project', compact('projects'));

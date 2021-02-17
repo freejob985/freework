@@ -168,8 +168,8 @@
                     {{ $item_project_bids->message}}
                   
                 </p>
-                <a href="#" class="btn btn-warning btn-block">ارسال الرسالة</a>
-                <a href="#" class="btn btn-success btn-block">قبول العرض</a>
+                <a href="#" class="btn btn-warning ">ارسال الرسالة</a>
+                <a href="#" class="btn btn-success ">قبول العرض</a>
             </div>
 
            

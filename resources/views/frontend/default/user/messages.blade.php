@@ -130,8 +130,8 @@
 
 @section('script')
     <script type="text/javascript">
+        function loadChats_();
         function loadChats(el){
-            alert(el);
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');
                 $(this).removeClass('selected-chat');
@@ -153,6 +153,30 @@
             });
         }
 
+
+
+        function loadChats_(){
+            var id ="{{ $id }}";
+            $('.selected-chat').each(function() {
+                $(this).removeClass('bg-soft-primary');
+                $(this).removeClass('selected-chat');
+            });
+
+            $(el).addClass('selected-chat');
+            $(el).addClass('bg-soft-primary');
+
+            $.get($(el).data('url'),{}, function(data){
+                $('#single_chat').html(data);
+                AIZ.extra.scrollToBottom();
+
+                initializeLoadMore();
+
+                $('#send-mesaage').on('submit',function(e){
+                    e.preventDefault();
+                    send_reply();
+                });
+            });
+        }
         function send_reply(){
             var chat_thread_id = $('#chat_thread_id').val();
             var message = $('#message').val();

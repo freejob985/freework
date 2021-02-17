@@ -206,8 +206,8 @@
 		                                    </div>
 		                                </a>
 										<div>
-											<a href="javascript:void(0)" class="btn btn-secondary btn-sm fw-500 confirm-cancel" data-href="{{route('projects.cancel', $project->id)}}">{{ translate('Cancel') }}</a>
-	                                        <a href="javascript:void(0)" class="btn btn-primary btn-sm fw-500 confirm-complete" data-href="{{route('projects.complete', $project->id)}}">{{ translate('Complete This') }}</a>
+											<a href="javascript:void(0)" class="btn btn-secondary btn-sm fw-500 confirm-cancel" data-href="{{route('projects.my_cancelled_project', $project->id)}}">{{ translate('Cancel') }}</a>
+	                                        <a href="javascript:void(0)" class="btn btn-primary btn-sm fw-500 confirm-complete" data-href="{{route('projects.my_completed_project', $project->id)}}">{{ translate('Complete This') }}</a>
 										</div>
 									@else
 										<div class="d-flex align-items-center">

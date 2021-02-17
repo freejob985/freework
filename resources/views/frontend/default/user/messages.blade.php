@@ -31,7 +31,7 @@
                                             @endphp
                                             @if ($single_chat_thread->receiver != null && $single_chat_thread->sender != null)
                                                 @if (isClient())
-                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
+                                                    <a href="javascript:void(0)"  class="chat-user-item p-3 d-block text-inherit {{ ( $single_chat_thread->receiver_user_id == $id) ? 'receiver_user_id' : '' }}" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm mr-3 flex-shrink-0">
                                                                 @if ($single_chat_thread->sender->photo != null)
@@ -130,7 +130,29 @@
 @endsection
 
 @section('script')
+
+loadChats_(); 
+
     <script type="text/javascript">
+        function loadChats_(){
+            $('.selected-chat').each(function() {
+                $(".receiver_user_id").removeClass('bg-soft-primary');
+                $(".receiver_user_id").removeClass('selected-chat');
+            });
+            $('.receiver_user_id').addClass('selected-chat');
+            $('.receiver_user_id').addClass('bg-soft-primary');
+
+            $.get($(".receiver_user_id").data('url'),{}, function(data){
+                $('#single_chat').html(data);
+                AIZ.extra.scrollToBottom();
+
+                initializeLoadMore();
+                $('#send-mesaage').on('submit',function(e){
+                    e.preventDefault();
+                    send_reply();
+                });
+            });
+        }
         function loadChats(el){
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');

@@ -132,7 +132,7 @@
     <script type="text/javascript">
         var user=   $(".chat-user-item [idu={{ $id }}]");
 
-        loadChats_sengel();
+        loadChats_sengel(user);
         function loadChats(el){
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');

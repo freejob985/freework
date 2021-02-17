@@ -30,7 +30,7 @@
                                             @endphp
                                             @if ($single_chat_thread->receiver != null && $single_chat_thread->sender != null)
                                                 @if (isClient())
-                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)" iduser="{{ $single_chat_thread->receiver_user_id }}">
+                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm mr-3 flex-shrink-0">
                                                                 @if ($single_chat_thread->sender->photo != null)
@@ -64,7 +64,7 @@
                                                         </div>
                                                     </a>
                                                 @else
-                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" iduser="{{ $single_chat_thread->receiver_user_id }}" onclick="loadChats(this)">
+                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm mr-3 flex-shrink-0">
                                                                 @if ($single_chat_thread->sender->photo != null)
@@ -130,7 +130,6 @@
 
 @section('script')
     <script type="text/javascript">
-        function loadChats_();
         function loadChats(el){
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');
@@ -153,32 +152,6 @@
             });
         }
 
-
-
-        function loadChats_(){
-            var id ="{{ $id }}";
-        
-            var attr=  $("a[iduser='{{ $id }}']");
-            $('.selected-chat').each(function() {
-                $(attr).removeClass('bg-soft-primary');
-                $(attr).removeClass('selected-chat');
-            });
-
-            $(attr).addClass('selected-chat');
-            $(attr).addClass('bg-soft-primary');
-
-            $.get($(attr).data('url'),{}, function(data){
-                $('#single_chat').html(data);
-                AIZ.extra.scrollToBottom();
-
-                initializeLoadMore();
-
-                $('#send-mesaage').on('submit',function(e){
-                    e.preventDefault();
-                    send_reply();
-                });
-            });
-        }
         function send_reply(){
             var chat_thread_id = $('#chat_thread_id').val();
             var message = $('#message').val();

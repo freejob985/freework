@@ -1,3 +1,4 @@
+dd($id);
 @extends('frontend.default.layouts.app')
 
 @section('content')

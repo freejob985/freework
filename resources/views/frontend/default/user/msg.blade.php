@@ -139,8 +139,8 @@
                 $(".receiver_user_id").removeClass('selected-chat');
             });
 
-            $(el).addClass('selected-chat');
-            $(el).addClass('bg-soft-primary');
+            $('.receiver_user_id').addClass('selected-chat');
+            $('.receiver_user_id').addClass('bg-soft-primary');
 
             $.get($(".receiver_user_id").data('url'),{}, function(data){
                 $('#single_chat').html(data);

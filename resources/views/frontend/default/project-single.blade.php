@@ -393,22 +393,7 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
     </div>
 </div>
 @include('frontend.default.partials.bookmark_remove_modal')
-@endsection
 
-
-
-
-@section('script')
-    <script type="text/javascript">
-        function hiring_modal(project_id, user_id){
-            $('input[name=project_id]').val(project_id);
-            $('input[name=user_id]').val(user_id);
-            $('#hiring_modal').modal('show');
-        }
-    </script>
-@endsection
-
-@section('modal')
 <div class="modal fade" id="hiring_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -451,3 +436,17 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
     </div>
 </div>
 @endsection
+
+
+
+
+@section('script')
+    <script type="text/javascript">
+        function hiring_modal(project_id, user_id){
+            $('input[name=project_id]').val(project_id);
+            $('input[name=user_id]').val(user_id);
+            $('#hiring_modal').modal('show');
+        }
+    </script>
+@endsection
+

@@ -35,6 +35,13 @@ class ChatController extends Controller
         return view('frontend.default.user.messages', compact('chat_threads'));
     }
 
+    public function chat_index_($id)
+    {
+        $chat_threads = ChatThread::where('sender_user_id', Auth::user()->id)->orWhere('receiver_user_id', $id)->get();
+        return view('frontend.default.user.messages', compact('chat_threads'));
+    }
+
+
     public function admin_chat_index(Request $request)
     {
         if (Gate::allows('user_chat_index')) {

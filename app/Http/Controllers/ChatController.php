@@ -86,7 +86,7 @@ class ChatController extends Controller
         }
         $chats = $chat_thread->chats()->latest()->limit(20)->get();
 
-        return view('frontend.default.partials.chat-messages', compact('chats', 'chat_thread'));
+        return view('frontend.default.user.messages', compact('chat_threads'));
     }
 
     public function get_old_messages(Request $request)

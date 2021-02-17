@@ -176,7 +176,6 @@
                     <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
                         @csrf
                         <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
-                        <input type="hidden" id="user_name" name="user_name" value="{{ $bid_user->freelancer->user_name }}">
                         <button type="submit" class="btn btn-primary btn-sm btn-block">{{ translate('Call for Interview') }}</button>
                     </form>
                 @elseif($project->project_user != null && $project->project_user->user_id == $bid_user->bid_by_user_id)

@@ -169,7 +169,7 @@
                   
                 </p>
                 <a href="{{ route('all.messages.user', ['id'=>$item_project_bids->bid_by_user_id]) }}" class="btn btn-warning ">ارسال الرسالة</a>
-                <a href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $bid_user->bid_by_user_id }})" type="button"  >قبول العرض</a>
+                <a href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</a>
             </div>
 
            

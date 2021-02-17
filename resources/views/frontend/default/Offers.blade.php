@@ -176,7 +176,7 @@
                     <button type="submit" class="btn btn-warning">{{ translate('Call for Interview') }}</button>
                 </form>
                 <br>
-                <a href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</a>
+                <button href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</button>
             </div>
             </div>
 

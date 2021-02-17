@@ -170,62 +170,11 @@
                 </p>
 
             </div>
-            <div>
-                @if ($project->biddable == 1)
-                    <button onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button" class="btn btn-outline-secondary btn-sm btn-block"> قبول العرض</button>
-                    <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
-                        @csrf
-                        <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
-                        <button type="submit" class="btn btn-primary btn-sm btn-block">{{ translate('Call for Interview') }}</button>
-                    </form>
-                @elseif($project->project_user != null && $project->project_user->user_id == $bid_user->bid_by_user_id)
-                    <button type="button" class="btn btn-primary btn-sm btn-block">{{ translate('Hired') }}</a>
-                @endif
-            </div>
+            
         </div>
         <hr>
         @endforeach
     </div>
 </div>
-<div class="modal fade" id="hiring_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ translate('Confirm Hiring') }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body" id="hiring_modal_body">
-                <form class="form-horizontal" action="{{ route('hiring_confirmation_store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
 
-                    <input type="hidden" name="user_id" value="" required>
-                    <input type="hidden" name="project_id" value="" required>
-
-                    <div class="form-group">
-                        <label class="form-label">
-                            {{translate('Project')}}
-                            <span class="text-danger">*</span>
-                        </label>
-                        <div class="form-group">
-                            <input type="text" class="form-control form-control-sm" name="project_name" value="{{ $project->name }}" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            {{translate('Amount')}}
-                            <span class="text-danger">*</span>
-                        </label>
-                        <div class="form-group">
-                            <input type="number" class="form-control form-control-sm" name="amount" value="" min="1" step="0.01" required>
-                        </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <button type="submit" class="btn btn-sm btn-primary transition-3d-hover mr-1">{{ translate('Hire Now') }}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 @endif

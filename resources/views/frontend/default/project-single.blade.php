@@ -394,13 +394,3 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
 </div>
 @include('frontend.default.partials.bookmark_remove_modal')
 @endsection
-@section('script')
-    <script type="text/javascript">
-        function hiring_modal(project_id, user_id){
-            $('input[name=project_id]').val(project_id);
-            $('input[name=user_id]').val(user_id);
-            $('#hiring_modal').modal('show');
-        }
-    </script>
-@endsection
-

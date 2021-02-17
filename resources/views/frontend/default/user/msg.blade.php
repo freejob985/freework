@@ -129,6 +129,31 @@
 
 @section('script')
     <script type="text/javascript">
+      
+        loadChats_(); 
+      
+      
+        function loadChats_(){
+            $('.selected-chat').each(function() {
+                $(".receiver_user_id").removeClass('bg-soft-primary');
+                $(".receiver_user_id").removeClass('selected-chat');
+            });
+
+            $(el).addClass('selected-chat');
+            $(el).addClass('bg-soft-primary');
+
+            $.get($(".receiver_user_id").data('url'),{}, function(data){
+                $('#single_chat').html(data);
+                AIZ.extra.scrollToBottom();
+
+                initializeLoadMore();
+
+                $('#send-mesaage').on('submit',function(e){
+                    e.preventDefault();
+                    send_reply();
+                });
+            });
+        }
         function loadChats(el){
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');

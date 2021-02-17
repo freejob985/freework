@@ -81,33 +81,7 @@
                         <h2 class="h5">{{ translate('Attachment') }}</h2>
                     </div>
                     <div class="file-preview">
-                        @foreach (json_decode($project->attachment) as $key => $attachment_id)
-                            @php
-                                $attachment = \App\Upload::find($attachment_id);
-                            @endphp
-                            @if ($attachment != null)
-                            <div class="d-flex justify-content-between align-items-center mt-2 file-preview-item" data-id="29" title="fsfhjllz_vegetables-banner.png">
-                                <div class="align-items-center align-self-stretch d-flex justify-content-center thumb">
-                                    @if ($attachment->type == 'document')
-                                        <i class="la la-file-text"></i>
-                                    @elseif ($attachment->type == 'image')
-                                        <img src="{{ my_asset($attachment->file_name) }}" class="img-fit">
-                                    @endif
-                                </div>
-                                <div class="col body">
-                                    <h6 class="d-flex">
-                                        <span class="text-truncate title">"{{ $attachment->file_original_name }}</span>
-                                        <span class="ext">.{{ $attachment->extension }}</span>
-                                    </h6>
-                                    <p>{{formatBytes($attachment->file_size)}}</p>
-                                </div>
-                            </div>
-                            @else
-                                <div class="alert alert-info" role="alert">
-                                    {{ translate('No attachment') }}
-                                </div>
-                            @endif
-                        @endforeach
+       
                     </div>
                 </div>
             </div>

@@ -154,8 +154,8 @@
                     <a href="#">{{ get_current_user__($item_project_bids->bid_by_user_id,"name") }}</a>
                 </span>
                 <p style="background: #f3f3f3;border: 1px solid #dfe0e0;padding: 1%;">
-                    <span><img style="width: 7%;" src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b"> العرض المقدم&nbsp;:&nbsp;&nbsp;{{ $item_project_bids->amount}}</span>   
-                    <span><img style="width: 7%;" src="https://www.flaticon.com/svg/vstatic/svg/2340/2340070.svg?token=exp=1613103154~hmac=8b0af9cc9a8d93f233bab740bdcf2c6b">  مدة التنفيذ&nbsp;:&nbsp;&nbsp;{{ $item_project_bids->execute}} يوم</span>   
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> العرض المقدم&nbsp;:&nbsp;&nbsp;{{ $item_project_bids->amount}}</span>   
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> مدة التنفيذ&nbsp;:&nbsp;&nbsp;{{ $item_project_bids->execute}} يوم</span>   
 
                        {{--  <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم &nbsp; &nbsp;
                            &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>  --}}

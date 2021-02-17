@@ -137,18 +137,7 @@
         @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as
         $item_project_bids)
         <div class="be-comment">
-            <div class="be-img-comment">
-                <a href="#">
-                    @if (get_current_user__($item_project_bids->bid_by_user_id,"photo") != null)
-                    <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt=""
-                        class="be-ava-comment">
-
-                    @else
-                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}" class="be-ava-comment">
-
-                    @endif
-                </a>
-            </div>
+        
             <div class="be-comment-content">
                 <span class="be-comment-name">
                     <a href="#">{{ get_current_user__($item_project_bids->bid_by_user_id,"name") }}</a>
@@ -165,6 +154,18 @@
                   
                 </p>
 
+            </div>
+            <div class="be-img-comment">
+                <a href="#">
+                    @if (get_current_user__($item_project_bids->bid_by_user_id,"photo") != null)
+                    <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt=""
+                        class="be-ava-comment">
+
+                    @else
+                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}" class="be-ava-comment">
+
+                    @endif
+                </a>
             </div>
         </div>
         <hr>

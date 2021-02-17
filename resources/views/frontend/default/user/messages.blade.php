@@ -130,6 +130,7 @@
 
 @section('script')
     <script type="text/javascript">
+        loadChats_sengel();
         function loadChats(el){
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');
@@ -153,16 +154,16 @@
         }
 
         function loadChats_sengel(){
-            $(".chat-user-item [idu={{ $id }}]")
+         var user=   $(".chat-user-item [idu={{ $id }}]");
             $('.selected-chat').each(function() {
-                $(this).removeClass('bg-soft-primary');
-                $(this).removeClass('selected-chat');
+                $(user).removeClass('bg-soft-primary');
+                $(user).removeClass('selected-chat');
             });
 
-            $(el).addClass('selected-chat');
-            $(el).addClass('bg-soft-primary');
+            $(user).addClass('selected-chat');
+            $(user).addClass('bg-soft-primary');
 
-            $.get($(el).data('url'),{}, function(data){
+            $.get($(user).data('url'),{}, function(data){
                 $('#single_chat').html(data);
                 AIZ.extra.scrollToBottom();
 

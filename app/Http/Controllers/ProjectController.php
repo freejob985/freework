@@ -79,7 +79,7 @@ class ProjectController extends Controller
     public function my_running_project()
     {
         if (isClient()) {
-            $projects = Project::where('client_user_id', Auth::user()->id)->where('biddable', '0')->open()->notcancel()->latest()->paginate(10);
+            $projects = Project::where('client_user_id', Auth::user()->id)->where('biddable', '0')->open()->notcancel()->latest()->orderBy('id', 'desc')->paginate(10);
             return view('frontend.default.user.client.projects.my_running_project', compact('projects'));
         } elseif (isFreelancer()) {
             $running_projects = DB::table('projects')
@@ -89,6 +89,7 @@ class ProjectController extends Controller
                 ->where('projects.closed', 0)
                 ->select('projects.id', 'project_users.hired_at')
                 ->distinct()
+                ->orderBy('id', 'desc')
                 ->paginate(10);
             return view('frontend.default.user.freelancer.projects.my_running_project', compact('running_projects'));
         } elseif (comprehensive()) {

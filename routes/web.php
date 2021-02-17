@@ -196,7 +196,7 @@ Route::get('/search', 'SearchController@index')->name('search')->middleware(['Ma
 Route::get('/search?category={category_slug}', 'SearchController@index')->name('projects.category')->middleware(['Maintenance']);
 Route::get('/skills/{skill}/{type}', 'SearchController@searchBySkill')->name('search.skill')->middleware(['Maintenance']);
 Route::get('/project/{slug}', 'HomeController@project_details')->name('project.details')->middleware(['Maintenance']);
-Route::get('/private-project-details/{slug}', 'HomeController@private_project_details')->name('private_project.details')->middleware(['Maintenance']);
+Route::get('/private-project-details/{slug}', 'HomeController@private_project_details')->name('private_project.details');
 
 Route::get('/project-lists', 'HomeController@all_projects')->name('projects.list')->middleware(['Maintenance']);
 

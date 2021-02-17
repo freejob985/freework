@@ -29,7 +29,7 @@ class ChatController extends Controller
         return redirect()->route('all.messages');
     }
 
-    public function chat_index()
+    public function chat_index($id=\null)
     {
         $chat_threads = ChatThread::where('sender_user_id', Auth::user()->id)->orWhere('receiver_user_id', Auth::user()->id)->get();
         return view('frontend.default.user.messages', compact('chat_threads'));

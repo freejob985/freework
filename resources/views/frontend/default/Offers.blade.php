@@ -168,7 +168,7 @@
                     {{ $item_project_bids->message}}
                   
                 </p>
-                <a href="#" class="btn btn-warning ">ارسال الرسالة</a>
+                <a href="{{ route('all.messages.user', ['id'=>1,'prog'=>1]) }}" class="btn btn-warning ">ارسال الرسالة</a>
                 <a href="#" class="btn btn-success ">قبول العرض</a>
             </div>
 

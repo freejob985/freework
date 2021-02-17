@@ -134,6 +134,9 @@
 loadChats_(); 
 
     <script type="text/javascript">
+        @if (!empty($id))
+        loadChats_();  
+        @endif
         function loadChats_(){
             $('.selected-chat').each(function() {
                 $(".receiver_user_id").removeClass('bg-soft-primary');

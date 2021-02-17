@@ -1,3 +1,14 @@
+@php
+if(Auth::check()){
+if(!isset($email_verified_at)){
+    $users = DB::table('users')->where('id',Auth::user()->id)
+    ->whereNotNull('email_verified_at')
+    ->get();  
+    $email_verified_at = count($users)>0 ? true : false;
+    }
+}
+@endphp
+
 @extends('frontend.default.layouts.app')
 
 @section('content')

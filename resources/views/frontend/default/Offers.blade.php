@@ -175,8 +175,8 @@
                     <input type="hidden" id="user_name" name="user_name" value="{{ get_current_user__($item_project_bids->bid_by_user_id,"user_name") }}">
                     <button type="submit" class="btn btn-warning">{{ translate('Call for Interview') }}</button>
                 </form>
-                <br>
-                <button href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</button>
+              
+                <button  class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</button>
             </div>
             </div>
 

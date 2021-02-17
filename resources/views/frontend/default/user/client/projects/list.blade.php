@@ -233,9 +233,7 @@
 											@if ($projects_==0)
 											<a href="#" class="btn btn-warning btn-sm fw-500">معلق</a>
 											@else
-											<a href="#" class="btn btn-success btn-sm fw-500" style="
-											display: none;
-										" >مقبول</a>	
+											<a href="#" class="btn btn-success btn-sm fw-500">قبول</a>	
 											@endif
 
 

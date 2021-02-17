@@ -37,7 +37,7 @@
                                         <span class="text-danger">*</span>
                                     </label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="execute" placeholder="مدة التنفيذ">
+                                        <input type="text" class="form-control" name="execute" placeholder="يوم">
                                     </div>
                                 </div>
                                 <div class="form-group" style="display:none;">

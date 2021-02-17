@@ -225,7 +225,7 @@
                                                 <div class="mt-xl-2 small text-secondary">
                                                   
                                 
-                                                        <span class="text-body mr-1">{{ $project->execute }}</span>
+                                                        <span class="text-body mr-1">{{ $project->execute }} يوم</span>
                                      
                                                     <span>مدة التنيفذ</span>
                                                 </div>

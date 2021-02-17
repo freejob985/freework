@@ -131,6 +131,7 @@
 @section('script')
     <script type="text/javascript">
         function loadChats(el){
+            alert(el);
             $('.selected-chat').each(function() {
                 $(this).removeClass('bg-soft-primary');
                 $(this).removeClass('selected-chat');

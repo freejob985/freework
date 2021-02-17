@@ -205,12 +205,7 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        function confirm_invite_modal(id){
-            $.post('{{ route('get_invitation_reply_modal') }}', { _token: '{{ csrf_token() }}', id:id }, function(data){
-                $('#invitation_reply').modal('show');
-                $('#invitation_reply_modal_body').html(data);
-            })
-        }
+ 
     </script>
 @endsection
 @section('modal')

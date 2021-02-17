@@ -138,7 +138,6 @@
                 $(".receiver_user_id").removeClass('bg-soft-primary');
                 $(".receiver_user_id").removeClass('selected-chat');
             });
-
             $('.receiver_user_id').addClass('selected-chat');
             $('.receiver_user_id').addClass('bg-soft-primary');
 
@@ -147,7 +146,6 @@
                 AIZ.extra.scrollToBottom();
 
                 initializeLoadMore();
-
                 $('#send-mesaage').on('submit',function(e){
                     e.preventDefault();
                     send_reply();

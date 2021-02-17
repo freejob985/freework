@@ -170,11 +170,12 @@
                 </p>
 
             </div>
-            
+
             <div class="btn-group btn-group-justified">
-                <a href="#" class="btn btn-primary">Apple</a>
-                <a href="#" class="btn btn-primary">Samsung</a>
-                <a href="#" class="btn btn-primary">Sony</a>
+          
+                <a href="#" class="btn btn-warning">ارسال الرسالة</a>
+                <a href="#" class="btn btn-success">قبول العرض</a>
+          
               </div> 
         </div>
         <hr>

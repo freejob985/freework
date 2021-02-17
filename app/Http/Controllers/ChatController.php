@@ -11,6 +11,7 @@ use App\Models\Role;
 use Session;
 use Auth;
 use Gate;
+use DB;
 
 class ChatController extends Controller
 {

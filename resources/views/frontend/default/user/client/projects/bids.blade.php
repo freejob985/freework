@@ -68,7 +68,7 @@
                                     </div>
                                     <div>
                                         @if ($project->biddable == 1)
-                                            <button onclick="hiring_modal({{ $project->id }}, {{ $bid_user->bid_by_user_id }})" type="button" class="btn btn-outline-secondary btn-sm btn-block"> قبول العرض</button>
+                                            <button onclick="hiring_modal({{ $project->id }}, {{ $bid_user->bid_by_user_id }})" type="button" class="btn btn-outline-secondary btn-sm btn-block">توظيف الان</button>
                                             <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">

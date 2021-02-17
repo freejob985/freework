@@ -168,7 +168,13 @@
                     {{ $item_project_bids->message}}
                   
                 </p>
-                <a href="{{ route('all.messages.user', ['id'=>$item_project_bids->bid_by_user_id]) }}" class="btn btn-warning ">ارسال الرسالة</a>
+                {{-- <a href="{{ route('all.messages.user', ['id'=>$item_project_bids->bid_by_user_id]) }}" class="btn btn-warning ">ارسال الرسالة</a> --}}
+                <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
+                    @csrf
+                    <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
+                    <input type="hidden" id="user_name" name="user_name" value="{{ get_current_user__($item_project_bids->bid_by_user_id,"user_name") }}">
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">{{ translate('Call for Interview') }}</button>
+                </form>
                 <a href="#" class="btn btn-success "  onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})" type="button"  >قبول العرض</a>
             </div>
 

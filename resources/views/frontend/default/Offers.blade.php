@@ -196,7 +196,7 @@
                             value="{{ get_current_user__($item_project_bids->bid_by_user_id,"user_name") }}">
                         <button type="submit" class="btn btn-warning btn-block">{{ translate('Call for Interview') }}
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
-                                fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square"
+                                fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"
                                 stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                                 <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
@@ -208,7 +208,7 @@
                     <button class="btn btn-success btn-block "
                         onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})"
                         type="button">قبول العرض <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square"
+                            viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"
                             stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                             <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>

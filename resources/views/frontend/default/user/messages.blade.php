@@ -30,7 +30,7 @@
                                             @endphp
                                             @if ($single_chat_thread->receiver != null && $single_chat_thread->sender != null)
                                                 @if (isClient())
-                                                    <a href="{{ $single_chat_thread->receiver_user_id }}" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)" iduser="{{ $single_chat_thread->receiver_user_id }}">
+                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)" iduser="{{ $single_chat_thread->receiver_user_id }}">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm mr-3 flex-shrink-0">
                                                                 @if ($single_chat_thread->sender->photo != null)

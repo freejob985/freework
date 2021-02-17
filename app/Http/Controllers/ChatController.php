@@ -30,7 +30,7 @@ class ChatController extends Controller
                 $existing_chat_thread->save();
             }
     
-            return redirect()->route('all.messages');
+            return redirect()->route('all.messages',['id'=> $bidder->id]);
         }
        
     }

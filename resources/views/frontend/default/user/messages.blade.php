@@ -130,6 +130,8 @@
 
 @section('script')
     <script type="text/javascript">
+        var user=   $(".chat-user-item [idu={{ $id }}]");
+
         loadChats_sengel();
         function loadChats(el){
             $('.selected-chat').each(function() {
@@ -153,8 +155,7 @@
             });
         }
 
-        function loadChats_sengel(){
-         var user=   $(".chat-user-item [idu={{ $id }}]");
+        function loadChats_sengel(user){
             $('.selected-chat').each(function() {
                 $(user).removeClass('bg-soft-primary');
                 $(user).removeClass('selected-chat');

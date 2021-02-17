@@ -157,16 +157,17 @@
 
         function loadChats_(){
             var id ="{{ $id }}";
-
+        
+            var attr=  $("a[iduser='{{ $id }}']");
             $('.selected-chat').each(function() {
-                $(this).removeClass('bg-soft-primary');
-                $(this).removeClass('selected-chat');
+                $(attr).removeClass('bg-soft-primary');
+                $(attr).removeClass('selected-chat');
             });
 
-            $(el).addClass('selected-chat');
-            $(el).addClass('bg-soft-primary');
+            $(attr).addClass('selected-chat');
+            $(attr).addClass('bg-soft-primary');
 
-            $.get($(el).data('url'),{}, function(data){
+            $.get($(attr).data('url'),{}, function(data){
                 $('#single_chat').html(data);
                 AIZ.extra.scrollToBottom();
 

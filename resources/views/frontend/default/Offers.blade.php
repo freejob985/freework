@@ -168,7 +168,7 @@
                     {{ $item_project_bids->message}}
                   
                 </p>
-                <div class="btn-group">
+                <div class="container">
                 <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
                     @csrf
                     <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">

@@ -159,7 +159,7 @@
     "Budget": "ميزانية",
     "By signing up you agree to our terms and conditions": "بالتسجيل فإنك توافق على الشروط والأحكام الخاصة بنا",
     "CTA Section": "قسم CTA",
-    "Call for Interview": "دعوة للمقابلة",
+    "Call for Interview": "ارسال رسالة",
     "Cancel": "إلغاء",
     "Cancel Confirmation": "تأكيد الإلغاء",
     "Cancel Project": "إلغاء المشروع",
@@ -224,7 +224,7 @@
     "Copyright Text": "نص حقوق النشر",
     "Country": "بلد",
     "Cover Image": "صورة الغلاف",
-    "Cover Letter": "غطاء الرسالة",
+    "Cover Letter": "نص الرسالة",
     "Create": "إنشئ",
     "Create New Language": "إنشاء لغة جديدة",
     "Create New Package": "إنشاء باقة جديدة",
@@ -906,5 +906,5 @@
     "Zip File": "Zip File",
     "404": "404",
     "500": "500",
-     "ago": "agoago"
+    "ago": "agoago"
 }

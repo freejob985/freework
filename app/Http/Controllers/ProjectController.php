@@ -32,7 +32,7 @@ class ProjectController extends Controller
         // dd($type);
         if (Auth::check()) {
             if ($type == "Freelancer") {
-               // dd("Catch errors for script and full tracking ( 3 )");
+                // dd("Catch errors for script and full tracking ( 3 )");
                 DB::table('user_roles')
                     ->where('user_id', Auth::user()->id)
                     ->update(['role_id' => "2"]);
@@ -51,12 +51,12 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $users = DB::table('users')->where('id',Auth::user()->id)
-        ->whereNotNull('email_verified_at')
-        ->get();  
-        $email_verified_at = count($users)>0 ? true : false;
+        $users = DB::table('users')->where('id', Auth::user()->id)
+            ->whereNotNull('email_verified_at')
+            ->get();
+        $email_verified_at = count($users) > 0 ? true : false;
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
-        return view('frontend.default.user.client.projects.list', compact('projects','email_verified_at'));
+        return view('frontend.default.user.client.projects.list', compact('projects', 'email_verified_at'));
     }
 
     public function my_open_project()
@@ -128,10 +128,16 @@ class ProjectController extends Controller
 
     }
 
-    public function my_completed_project($id=\null)
+    public function my_completed_project($id = \null)
     {
+        dd($id);
 
-  //   المشاريع المكتملة 
+        DB::table('projects')
+            ->where('id', $request->input('id'))
+            ->update([
+                'closed' => 1,
+            ]);
+        //   المشاريع المكتملة
         if (isClient()) {
             $projects = Project::where('client_user_id', Auth::user()->id)->closed()->latest()->paginate(10);
             dd($projects);

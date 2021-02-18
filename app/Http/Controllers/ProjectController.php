@@ -130,10 +130,11 @@ class ProjectController extends Controller
 
     public function my_completed_project()
     {
-        dd("Catch errors for script and full tracking ( 1 )");
+
   //   المشاريع المكتملة 
         if (isClient()) {
             $projects = Project::where('client_user_id', Auth::user()->id)->closed()->latest()->paginate(10);
+            dd($projects);
             return view('frontend.default.user.client.projects.my_completed_project', compact('projects'));
         } elseif (isFreelancer()) {
             $completed_projects = getCompletedProjectsByFreelancer(Auth::user()->id)->paginate(10);

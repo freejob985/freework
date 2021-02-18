@@ -130,10 +130,10 @@ class ProjectController extends Controller
 
     public function my_completed_project($id = \null)
     {
-        dd($id);
+       
 
         DB::table('projects')
-            ->where('id', $request->input('id'))
+            ->where('id', $id)
             ->update([
                 'closed' => 1,
             ]);

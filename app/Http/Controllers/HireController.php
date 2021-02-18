@@ -129,12 +129,21 @@ class HireController extends Controller
 //====================================================
         $bid_by_user_id = DB::table('project_bids')->where('project_id', $request->project_id)->value('bid_by_user_id');
      //   dd("Catch errors for script and full tracking ( 1 )");
-         $milestone = new MilestonePayment;
-         $milestone->client_user_id = Auth::user()->id;
-         $milestone->project_id = $request->project_id;
-         $milestone->freelancer_user_id =$bid_by_user_id;
-         $milestone->amount =  $request->amount;
-         $milestone->message = "تسديد اجمالي المبلغ";
+   
+     DB::table('milestone_payments')->insert([
+        'project_id' => $request->input('project_id'),
+        'client_user_id' => Auth::user()->id,
+        'freelancer_user_id' => $bid_by_user_id,
+        'amount' =>$request->amount,
+        'message' => "تسديد اجمالي المبلغ",
+                ]);
+   
+    //  $milestone = new MilestonePayment;
+    //      $milestone->client_user_id = Auth::user()->id;
+    //      $milestone->project_id = $request->project_id;
+    //      $milestone->freelancer_user_id =$bid_by_user_id;
+    //      $milestone->amount =  $request->amount;
+    //      $milestone->message = "تسديد اجمالي المبلغ";
 //=====================================================
         flash('You have hired successfully.')->success();
         return redirect()->route('milestone-requests.all');

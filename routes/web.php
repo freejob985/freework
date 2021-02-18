@@ -68,7 +68,7 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function () {
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware(['Maintenance']);
     Route::get('/Transformations/{user}', 'HomeController@Transformation')->name('Transformations')->middleware(['Maintenance']);
     Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project')->middleware(['Maintenance']);;
-    Route::get('/projects/completed-project', 'ProjectController@my_completed_project')->name('projects.my_completed_project')->middleware(['Maintenance']);;
+    Route::get('/projects/completed-project/{id?}', 'ProjectController@my_completed_project')->name('projects.my_completed_project')->middleware(['Maintenance']);;
     Route::get('/projects/cancelled-project', 'ProjectController@my_cancelled_project')->name('projects.my_cancelled_project')->middleware(['Maintenance']);;
     Route::get('/projects/cancel-project-request/{id}', 'ProjectController@project_cancel')->name('projects.cancel')->middleware(['Maintenance']);;
 

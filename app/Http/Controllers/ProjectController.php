@@ -128,7 +128,7 @@ class ProjectController extends Controller
 
     }
 
-    public function my_completed_project()
+    public function my_completed_project($id=\null)
     {
 
   //   المشاريع المكتملة 

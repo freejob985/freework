@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChatThread;
+use App\Models\HireInvitation;
+use App\Models\MilestonePayment;
+use App\Models\Project;
+use App\Models\ProjectCategory;
+use App\Models\ProjectUser;
+use App\User;
 use App\Utility\EmailUtility;
 use App\Utility\NotificationUtility;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\ProjectCategory;
-use App\Models\HireInvitation;
-use App\Models\UserProfile;
-use App\Models\ProjectUser;
-use App\Models\ChatThread;
-use App\Models\ProjectBid;
-use App\Models\Project;
-use App\Models\Notification;
-use App\User;
-use Session;
-use Auth;
-
+use DB;
 class HireController extends Controller
 {
     //private project freelancer
@@ -50,10 +47,10 @@ class HireController extends Controller
         $project->biddable = '0';
         $project->description = $request->description;
         if ($request->attachments != null) {
-            $project->attachment = json_encode(explode(",",$request->attachment));
+            $project->attachment = json_encode(explode(",", $request->attachment));
         }
         $project->client_user_id = Auth::user()->id;
-        $project->slug = Str::slug($request->name, '-').date('Ymd-his');
+        $project->slug = Str::slug($request->name, '-') . date('Ymd-his');
         if ($project->save()) {
             $hire_invitation = new HireInvitation;
             $hire_invitation->project_id = $project->id;
@@ -63,7 +60,7 @@ class HireController extends Controller
             $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $request->freelancer_id)->first();
             if ($existing_chat_thread == null) {
                 $existing_chat_thread = new ChatThread;
-                $existing_chat_thread->thread_code = $request->freelancer_id.date('Ymd').Auth::user()->id;
+                $existing_chat_thread->thread_code = $request->freelancer_id . date('Ymd') . Auth::user()->id;
                 $existing_chat_thread->sender_user_id = Auth::user()->id;
                 $existing_chat_thread->receiver_user_id = $request->freelancer_id;
                 $existing_chat_thread->save();
@@ -73,22 +70,21 @@ class HireController extends Controller
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
                 "You have recieved a proposal for a project by",
-                route('project.details',['slug'=>$project->slug],false),
+                route('project.details', ['slug' => $project->slug], false),
                 $request->freelancer_id,
                 Auth::user()->id,
                 'freelancer'
             );
             EmailUtility::send_email(
-                "You got a new project proposal - ".$project->name,
-                "You have recieved a proposal for a project by ". $project->client->name,
+                "You got a new project proposal - " . $project->name,
+                "You have recieved a proposal for a project by " . $project->client->name,
                 get_email_by_user_id($request->freelancer_id),
-                route('project.details',['slug'=>$project->slug])
+                route('project.details', ['slug' => $project->slug])
             );
 
             flash('Invitation has been sent successfully.')->success();
             return redirect()->route('dashboard');
-        }
-        else {
+        } else {
             flash('Sorry! Something went wrong.')->error();
             return back();
         }
@@ -101,7 +97,7 @@ class HireController extends Controller
         $project->biddable = 0;
         $project->save();
 
-        if($project->project_user == null){
+        if ($project->project_user == null) {
             $project_user = new ProjectUser;
             $project_user->project_id = $request->project_id;
             $project_user->user_id = $request->user_id;
@@ -110,7 +106,7 @@ class HireController extends Controller
         }
 
         $invited_project = HireInvitation::where('project_id', $project->id)->first();
-        if($invited_project != null){
+        if ($invited_project != null) {
             $invited_project->status = 'accepted';
             $invited_project->save();
         }
@@ -119,18 +115,28 @@ class HireController extends Controller
         NotificationUtility::set_notification(
             "freelancer_hired_for_project",
             "You have been hired for a project by",
-            route('project.details',['slug'=>$project->slug],false),
+            route('project.details', ['slug' => $project->slug], false),
             $request->user_id,
             Auth::user()->id,
             'freelancer'
         );
         EmailUtility::send_email(
-            "You have been hired - ".$project->name,
-            "You have been hired for a project by ". $project->client->name,
+            "You have been hired - " . $project->name,
+            "You have been hired for a project by " . $project->client->name,
             get_email_by_user_id($request->user_id),
-            route('project.details',['slug'=>$project->slug])
+            route('project.details', ['slug' => $project->slug])
         );
+//====================================================
+        // $client_user_id = DB::table('projects')->where('id', $request->input('id'))->value('client_user_id');
 
+        // $milestone = new MilestonePayment;
+        // $milestone->client_user_id = $request->client_id;
+        // $milestone->project_id = $request->project_id;
+        // $milestone->freelancer_user_id = Auth::user()->id;
+        // $milestone->amount = 0;
+        // $milestone->message = "";
+
+//=====================================================
         flash('You have hired successfully.')->success();
 
         return back();

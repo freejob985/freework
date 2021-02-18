@@ -127,7 +127,7 @@ class HireController extends Controller
             route('project.details', ['slug' => $project->slug])
         );
 //====================================================
-        $bid_by_user_id = DB::table('project_bids')->where('project_id', $request->input('project_id'))->value('bid_by_user_id');
+        $bid_by_user_id = DB::table('project_bids')->where('project_id', $request->project_id)->value('bid_by_user_id');
         dd("Catch errors for script and full tracking ( 1 )");
          $milestone = new MilestonePayment;
          $milestone->client_user_id = Auth::user()->id;

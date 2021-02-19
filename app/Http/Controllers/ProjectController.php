@@ -132,13 +132,14 @@ class ProjectController extends Controller
     {
        
 
-        DB::table('projects')
+
+        //   المشاريع المكتملة
+        if (isClient()) {
+            DB::table('projects')
             ->where('id', $id)
             ->update([
                 'closed' => 1,
             ]);
-        //   المشاريع المكتملة
-        if (isClient()) {
             $projects = Project::where('client_user_id', Auth::user()->id)->closed()->latest()->paginate(10);
            // dd($projects);
             return view('frontend.default.user.client.projects.my_completed_project', compact('projects'));

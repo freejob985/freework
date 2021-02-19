@@ -163,7 +163,7 @@
         				<button type="button" class="btn btn-light" data-dismiss="modal">{{ translate('Close') }}</button>
         				<button type="submit" class="btn btn-primary">{{ translate('Rate This Freelancer') }}</button>
         			</div>
-                </form
+                </form>
             </div>
         </div>
     </div>

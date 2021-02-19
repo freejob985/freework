@@ -173,6 +173,9 @@
                                     </div>
                                 </li>
                             </ul>
+                            @if ($support_ticket->status=="1")
+                                
+                       
                             <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-header">
@@ -240,6 +243,7 @@
                                     <button type="submit" class="btn btn-primary">تأكيد التقيم</button>
                                 </div>
                             </form>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -198,6 +198,7 @@
                     padding: 0.3%;
                     font-size: 13px;
                     width: 16%;
+                    box-shadow: 0px 4px #e3e3e8;
                     margin-top: 2%;
                 ">تم قبول العرض</span>
                     @endif

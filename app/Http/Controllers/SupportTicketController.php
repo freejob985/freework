@@ -114,12 +114,19 @@ class SupportTicketController extends Controller
         return view('support_ticket.frontend.support_ticket_show', compact('support_replies', 'support_ticket'));
     }
 
+    public function reviews(Request $request)
+    {
+      ///  dd($request->all());
 
-public function reviews(Request $request)
-{
-    dd($request->all());
-    # code...
-}
+        $data = [
+            'rating' => $request->rating,
+            'msg' => $request->review,
+        ];
+        DB::table('support_tickets')
+        ->where('id', $request->input('id'))
+        ->update($data); 
+        # code...
+    }
 
     public function my_ticket()
     {
@@ -208,7 +215,7 @@ public function reviews(Request $request)
 
     public function ticket_reply(Request $request)
     {
-         dd($request->all());
+        dd($request->all());
 
         $support_ticket = SupportTicket::findOrFail($request->support_ticket_id);
 
@@ -221,15 +228,15 @@ public function reviews(Request $request)
         $array['reply'] = $request->reply;
         $array['email'] = $email;
         $array['users'] = $users;
-     //    dd($array);
+        //    dd($array);
         Mail::send('/st', ['array' => $array], function ($m) use ($array) {
-            $m->to($array['email'] )->subject('reply Support Ticket ')->getSwiftMessage()
+            $m->to($array['email'])->subject('reply Support Ticket ')->getSwiftMessage()
                 ->getHeaders()
                 ->addTextHeader('x-mailgun-native-send', 'true');
             $m->from('sub@digi-gate.com', 'مسطر');
 
         });
-        
+
         $ticket_reply = new SupportTicketReply;
         $ticket_reply->support_ticket_id = $request->support_ticket_id;
         $ticket_reply->replied_user_id = Auth::user()->id;

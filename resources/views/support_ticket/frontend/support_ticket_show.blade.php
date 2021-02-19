@@ -174,7 +174,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="hidden" name="id" value="$support_ticket->id">
+                                    <input type="hidden" name="id" value="{{ $support_ticket->id }}">
                                     <div class="form-group">
                                         <div class="rating rating-input rating-lg">
                                             <label>

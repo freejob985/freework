@@ -183,6 +183,7 @@
                 </p>
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
+                    <span class="label label-success">Success Label</span>
 
                 </p>
              @if (Auth::check())

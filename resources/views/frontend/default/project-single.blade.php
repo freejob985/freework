@@ -132,7 +132,9 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
                             <a href="javascript:void(0)" class="btn btn-primary"
                                 onclick="bid_modal({{ $project->id }})">{{ translate('Place Bid') }}</a>
                             @else
-                            <div class="alert alert-info m-2" role="alert">
+                            <div class="alert alert-info m-2" role="alert" style="
+                            display: none;
+                        ">
                                 {{ translate('You have already submitted bid for this project.') }}
                             </div>
                             @endif

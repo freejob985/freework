@@ -3,6 +3,12 @@
 
 @section('content')
 
+
+<style>
+    .rating-lg i {
+        font-size: 2.125rem;
+    } 
+</style>
     <section class="py-5">
         <div class="container">
             <div class="d-flex align-items-start">

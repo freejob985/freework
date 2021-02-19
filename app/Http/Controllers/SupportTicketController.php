@@ -114,6 +114,13 @@ class SupportTicketController extends Controller
         return view('support_ticket.frontend.support_ticket_show', compact('support_replies', 'support_ticket'));
     }
 
+
+public function reviews(Request $request)
+{
+    dd($request->all());
+    # code...
+}
+
     public function my_ticket()
     {
         if (Gate::allows('support_my_ticket_index')) {

@@ -25,6 +25,11 @@ Route::group(['middleware' => ['user', 'verified']], function(){
 	Route::post('support-ticket/user-reply', 'SupportTicketController@ticket_reply')->name('support-ticket.user_reply');
 	Route::get('support-ticket/history', 'SupportTicketController@user_index')->name('support-tickets.user_index');
 	Route::get('support-ticket/view-details/{id}', 'SupportTicketController@user_view_details')->name('support-tickets.user_view_details');
+	Route::post('support-ticket/store', 'SupportTicketController@store')->name('support-ticket.store');
+	Route::post('support-ticket/reviews', 'SupportTicketController@reviews')->name('support-ticket.reviews');
+
+	
+
 
 });
 

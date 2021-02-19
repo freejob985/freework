@@ -176,15 +176,14 @@
 
 
 
-        <form action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
-                <h4 class="h6 mb-0">{{translate('Rate This Freelancer')}}</h4>
+                <h4 class="h6 mb-0">تقيم الخدمة</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body">
-                <input type="hidden" name="project_id" value="">
-                <input type="hidden" name="project_id" value="">
+                <input type="hidden" name="id" value="$support_ticket->id">
                 <div class="form-group">
                     <div class="rating rating-input rating-lg">
                         <label>

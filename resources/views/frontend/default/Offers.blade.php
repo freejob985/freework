@@ -183,7 +183,14 @@
                 </p>
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
-                    <span class="label label-success">Success Label</span>
+                    <span class="label label-success" style="
+                    background: #28e299;
+                    text-align: center;
+                    color: white;
+                    padding: 0.3%;
+                    font-size: 13px;
+                    width: 16%;
+                ">تم قبول  العرض</span>
 
                 </p>
              @if (Auth::check())

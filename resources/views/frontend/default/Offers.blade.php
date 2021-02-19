@@ -185,7 +185,10 @@
                     {{ $item_project_bids->message}}
 
                 </p>
-                @if (isClient())
+             @if (Auth::check())
+                 
+             
+                @if (isClient() and Auth::user()->id==$project->client_user_id)
 
 
                 <div class="container">
@@ -216,6 +219,7 @@
                             <line x1="6" y1="18" x2="6.01" y2="18"></line>
                         </svg></button>
                 </div>
+                @endif
                 @endif
             </div>
 

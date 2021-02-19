@@ -121,6 +121,7 @@ class SupportTicketController extends Controller
         $data = [
             'rating' => $request->rating,
             'msg' => $request->review,
+            'st' => "1",
         ];
         DB::table('support_tickets')
         ->where('id', $request->input('id'))

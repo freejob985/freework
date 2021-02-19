@@ -184,6 +184,7 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" name="project_id" value="">
+                <input type="hidden" name="project_id" value="">
                 <div class="form-group">
                     <div class="rating rating-input rating-lg">
                         <label>

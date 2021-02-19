@@ -183,8 +183,15 @@
                 </p>
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
+                    @php
+                    $project_users = DB::table('project_users')->where('project_id',
+                    $project->id)->where('user_id', $item_project_bids->bid_by_user_id)->exists();
+                    @endphp
+                    @if ($project_users)
+
+
                     <br>
-                    <span class="label label-success"style="
+                    <span class="label label-success" style="
                     background: #28e299;
                     text-align: center;
                     color: white;
@@ -192,12 +199,13 @@
                     font-size: 13px;
                     width: 16%;
                     margin-top: 2%;
-                ">تم قبول  العرض</span>
+                ">تم قبول العرض</span>
+                    @endif
 
                 </p>
-             @if (Auth::check())
-                 
-             
+                @if (Auth::check())
+
+
                 @if (isClient() and Auth::user()->id==$project->client_user_id)
 
 

@@ -171,9 +171,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-
+                
             <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
@@ -216,6 +215,9 @@
                     <button type="submit" class="btn btn-primary">{{ translate('Rate This Freelancer') }}</button>
                 </div>
             </form>
+            </div>
+
+
         </div>
 
 

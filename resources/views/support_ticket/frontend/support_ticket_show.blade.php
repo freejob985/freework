@@ -172,52 +172,55 @@
                     </div>
                 </div>
             </div>
+
+
+            <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-header">
+                    <h4 class="h6 mb-0">تقيم الخدمة</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="$support_ticket->id">
+                    <div class="form-group">
+                        <div class="rating rating-input rating-lg">
+                            <label>
+                                <input type="radio" name="rating" value="1">
+                                <i class="las la-star active"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="2">
+                                <i class="las la-star active"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="3" >
+                                <i class="las la-star active"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="4">
+                                <i class="las la-star"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="5" checked="">
+                                <i class="las la-star"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ translate('Comment') }}</label>
+                        <textarea class="form-control" rows="5" name="review" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">{{ translate('Close') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ translate('Rate This Freelancer') }}</button>
+                </div>
+            </form>
         </div>
 
 
 
-        <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-header">
-                <h4 class="h6 mb-0">تقيم الخدمة</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" name="id" value="$support_ticket->id">
-                <div class="form-group">
-                    <div class="rating rating-input rating-lg">
-                        <label>
-                            <input type="radio" name="rating" value="1">
-                            <i class="las la-star active"></i>
-                        </label>
-                        <label>
-                            <input type="radio" name="rating" value="2">
-                            <i class="las la-star active"></i>
-                        </label>
-                        <label>
-                            <input type="radio" name="rating" value="3" >
-                            <i class="las la-star active"></i>
-                        </label>
-                        <label>
-                            <input type="radio" name="rating" value="4">
-                            <i class="las la-star"></i>
-                        </label>
-                        <label>
-                            <input type="radio" name="rating" value="5" checked="">
-                            <i class="las la-star"></i>
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>{{ translate('Comment') }}</label>
-                    <textarea class="form-control" rows="5" name="review" required></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">{{ translate('Close') }}</button>
-                <button type="submit" class="btn btn-primary">{{ translate('Rate This Freelancer') }}</button>
-            </div>
-        </form>
+
     </section>
 
 @endsection

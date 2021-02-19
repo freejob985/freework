@@ -173,7 +173,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            @if ($support_ticket->status=="1" and empty($support_ticket->rating) )
+                            @if ($support_ticket->status=="1" and $support_ticket->st=="0" )
                                 
                        
                             <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">

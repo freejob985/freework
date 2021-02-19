@@ -176,7 +176,7 @@
                             <form action="{{ route('support-ticket.reviews') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-header">
-                                    <h4 class="h6 mb-0">تقيم الخدمة</h4>
+                                    <h4 class="h6 mb-0">تقيم الدعم</h4>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" name="id" value="{{ $support_ticket->id }}">
@@ -237,7 +237,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">{{ translate('Rate This Freelancer') }}</button>
+                                    <button type="submit" class="btn btn-primary">تأكيد التقيم</button>
                                 </div>
                             </form>
                         </div>

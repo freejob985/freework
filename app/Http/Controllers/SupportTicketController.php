@@ -125,6 +125,9 @@ class SupportTicketController extends Controller
         DB::table('support_tickets')
         ->where('id', $request->input('id'))
         ->update($data); 
+        flash('The evaluation was done')->success();
+        return redirect()->back()->with('alert-success', 'The data was saved successfully');
+
         # code...
     }
 
@@ -215,7 +218,7 @@ class SupportTicketController extends Controller
 
     public function ticket_reply(Request $request)
     {
-        dd($request->all());
+       // dd($request->all());
 
         $support_ticket = SupportTicket::findOrFail($request->support_ticket_id);
 

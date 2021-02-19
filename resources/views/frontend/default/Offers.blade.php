@@ -184,13 +184,14 @@
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
                     <br>
-                    <span class="label label-success" style="
+                    <span class="label label-success"style="
                     background: #28e299;
                     text-align: center;
                     color: white;
                     padding: 0.3%;
                     font-size: 13px;
                     width: 16%;
+                    margin-top: 2%;
                 ">تم قبول  العرض</span>
 
                 </p>

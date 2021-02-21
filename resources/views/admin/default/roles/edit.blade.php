@@ -15,6 +15,7 @@
                             <label for="name">{{translate('Name')}}</label>
                             <input type="text" id="name" name="name" value="{{ $role->name }}" class="form-control" required>
                         </div>
+                        
                         <div class="form-group mb-3 text-right">
                             <button type="submit" class="btn btn-primary">{{translate('Update')}}</button>
                         </div>

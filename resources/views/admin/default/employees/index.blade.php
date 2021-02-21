@@ -48,7 +48,7 @@
                                     </td>
                                     <td>{{$user->phone}}</td>
                                     <td class="text-right">
-                                        <!-- <a class="dropdown-item" href="{{ route('employees.set_permission', encrypt($employee->id)) }}">{{translate('Set Access Permission')}}</a> -->
+                                         <a class="dropdown-item" href="{{ route('employees.set_permission', encrypt($employee->id)) }}">{{translate('Set Access Permission')}}</a> 
                                         <a class="btn btn-soft-primary btn-icon btn-circle btn-sm btn icon" href="{{ route('employees.edit', encrypt($employee->user_id)) }}" title="{{translate('Edit')}}">
                                             <i class="las la-pen"></i>
                                         </a>

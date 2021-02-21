@@ -583,3 +583,7 @@ function googel($pag, $pos)
         }
     }
 }
+function get_role($id)
+{
+    # code...
+}

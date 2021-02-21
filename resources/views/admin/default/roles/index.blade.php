@@ -55,7 +55,7 @@
                         </div>
                         @foreach(DB::table('pag')->orderBy('id','desc')->get() as $item_pag)
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">{{ $item_pag->pag}}</label>
+                            <label><input type="checkbox" value="{{ $item_pag->id}}" name="pag[]">{{ $item_pag->pag}}</label>
                           </div>
                         @endforeach
                         <div class="form-group mb-3 text-right">

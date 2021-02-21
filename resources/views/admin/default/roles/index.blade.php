@@ -54,9 +54,18 @@
                             <input type="text" id="name" name="name" class="form-control" required placeholder="Eg. Support Agent">
                         </div>
                         @foreach(DB::table('pag')->orderBy('id','desc')->get() as $item_pag)
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="{{ $item_pag->id}}" name="pag[]">{{ $item_pag->pag}}</label>
-                          </div>
+                        <div class="[ form-group ]">
+                            <input type="checkbox" name="pag[]" id="fancy-checkbox-default-custom-icons" autocomplete="off" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-default-custom-icons" class="[ btn btn-default ]">
+                                    <span class="[ glyphicon glyphicon-plus ]"></span>
+                                    <span class="[ glyphicon glyphicon-minus ]"></span>
+                                </label>
+                                <label for="fancy-checkbox-default-custom-icons" class="[ btn btn-default active ]">
+                                    {{ $item_pag->pag}}
+                                </label>
+                            </div>
+                        </div>
                         @endforeach
                         <div class="form-group mb-3 text-right">
                             <button type="submit" class="btn btn-primary">{{translate('Add New Role')}}</button>

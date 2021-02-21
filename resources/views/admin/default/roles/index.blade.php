@@ -80,7 +80,7 @@
                         </div>
                         @foreach(DB::table('pag')->orderBy('id','desc')->get() as $item_pag)
                         <div class="[ form-group ]">
-                            <input type="checkbox" name="pag[]" id="fancy-checkbox-success-custom-icons{{ $item_pag->id}}" value="{{ $item_pag->id}}" autocomplete="off" />
+                            <input type="checkbox" name="pag[]" id="fancy-checkbox-default-custom-icons{{ $item_pag->id}}" value="{{ $item_pag->id}}" autocomplete="off" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-default-custom-icons{{ $item_pag->id}}" class="[ btn btn-default ]">
                                     <span class="[ glyphicon glyphicon-plus ]"></span>

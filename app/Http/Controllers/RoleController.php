@@ -44,7 +44,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+      //  dd($request->all());
         $role = new Role;
         $role->role_type = 'employee';
         $role->name = $request->name;

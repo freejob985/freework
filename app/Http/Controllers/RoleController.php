@@ -48,7 +48,7 @@ class RoleController extends Controller
         $role = new Role;
         $role->role_type = 'employee';
         $role->name = $request->name;
-        $role->pag = $request->pag;
+        $role->pag = implode(",",$request->pag);
         if($role->save()){
             flash(__('Role has been inserted successfully'))->success();
             return redirect()->route('roles.index');

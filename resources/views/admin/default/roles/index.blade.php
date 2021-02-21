@@ -1,33 +1,7 @@
 @extends('admin.default.layouts.app')
 
 @section('content')
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<style>
-    .form-group input[type="checkbox"] {
-        display: none;
-    }
-    
-    .form-group input[type="checkbox"] + .btn-group > label span {
-        width: 20px;
-    }
-    
-    .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-        display: none;
-    }
-    .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-        display: inline-block;   
-    }
-    
-    .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-        display: inline-block;
-    }
-    .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-        display: none;   
-    } 
-</style>
     <div class="row">
         <div class="col-lg-8">
             <div class="card">
@@ -79,20 +53,6 @@
                             <label for="name">{{translate('Name')}}</label>
                             <input type="text" id="name" name="name" class="form-control" required placeholder="Eg. Support Agent">
                         </div>
-                        @foreach(DB::table('pag')->orderBy('id','desc')->get() as $item_pag)
-                        <div class="[ form-group ]">
-                            <input type="checkbox" name="pag[]" id="fancy-checkbox-default-custom-icons{{ $item_pag->id}}" value="{{ $item_pag->id}}" autocomplete="off" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-default-custom-icons{{ $item_pag->id}}" class="[ btn btn-default ]">
-                                    <span class="[ glyphicon glyphicon-plus ]"></span>
-                                    <span class="[ glyphicon glyphicon-minus ]"></span>
-                                </label>
-                                <label for="fancy-checkbox-default-custom-icons" class="[ btn btn-default active ]">
-                                    {{ $item_pag->pag}}
-                                </label>
-                            </div>
-                        </div>
-                        @endforeach
                         <div class="form-group mb-3 text-right">
                             <button type="submit" class="btn btn-primary">{{translate('Add New Role')}}</button>
                         </div>

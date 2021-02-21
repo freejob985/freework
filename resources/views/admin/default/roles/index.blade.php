@@ -2,6 +2,8 @@
 
 @section('content')
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
     .form-group input[type="checkbox"] {

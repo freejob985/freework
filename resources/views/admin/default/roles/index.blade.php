@@ -53,6 +53,11 @@
                             <label for="name">{{translate('Name')}}</label>
                             <input type="text" id="name" name="name" class="form-control" required placeholder="Eg. Support Agent">
                         </div>
+                        @foreach(DB::table('pag')->orderBy('id','desc')->get() as $item_pag)
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">{{ $item_pag->pag}}</label>
+                          </div>
+                        @endforeach
                         <div class="form-group mb-3 text-right">
                             <button type="submit" class="btn btn-primary">{{translate('Add New Role')}}</button>
                         </div>

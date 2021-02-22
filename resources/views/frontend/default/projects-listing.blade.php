@@ -1,5 +1,12 @@
 @extends('frontend.default.layouts.app')
 
+
+<style>
+    svg#Capa_1 {
+        width: 6%;
+    }   
+</style>
+
 @section('content')
     <section class="py-4 py-lg-5">
         {{ googel("Projects","Top") }}

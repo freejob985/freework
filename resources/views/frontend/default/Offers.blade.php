@@ -201,9 +201,48 @@
                     box-shadow: 0px 4px #e3e3e8;
                     margin-top: 2%;
                 ">تم قبول العرض</span>
+
+
+
+
+
                     @endif
 
                 </p>
+
+                @if (Auth::check())
+                @if (isFreelancer())
+                <div class="container">
+                    <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
+                        @csrf
+                        <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
+                        <input type="hidden" id="user_name" name="user_name"
+                            value="{{ get_current_user__($item_project_bids->bid_by_user_id,"user_name") }}">
+                        <button type="submit" class="btn btn-warning btn-block">{{ translate('Call for Interview') }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg></button>
+                    </form>
+                    <br>
+                    <button class="btn btn-success btn-block "
+                        onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})"
+                        type="button">قبول العرض <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                            viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"
+                            stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg></button>
+                </div>
+                @endif
+                @endif
+
                 @if (Auth::check())
 
 

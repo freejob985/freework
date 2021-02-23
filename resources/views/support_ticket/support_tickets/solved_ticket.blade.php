@@ -50,6 +50,9 @@
                                 <th data-breakpoints="md">{{translate('Category')}}</th>
                                 <th data-breakpoints="sm">{{translate('Suport Agent')}}</th>
                                 <th data-breakpoints="sm">{{translate('Submitted Date')}}</th>
+                                <th data-breakpoints="sm">التقيم</th>
+                                <th data-breakpoints="sm">الرسالة</th>
+                                <th data-breakpoints="sm">{{translate('Submitted Date')}}</th>
                                 <th width="10%" class="text-right">{{translate('Option')}}</th>
                             </tr>
                         </thead>
@@ -77,6 +80,8 @@
                                         @endif
                                     </td>
                                     <td>{{ $support_ticket->created_at }}</td>
+                                    <td>{{ $support_ticket->rating }}</td>
+                                    <td>{{ $support_ticket->msg }}</td>
                                     <td class="text-right">
                                         <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('support-tickets.show', encrypt($support_ticket->id))}}" title="{{ translate('Edit') }}">
                                             <i class="las la-edit"></i>

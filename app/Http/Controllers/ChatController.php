@@ -18,6 +18,7 @@ class ChatController extends Controller
     public function index(Request $request)
     {
         $bidder = User::where('user_name', $request->user_name)->first();
+        dd( $bidder);
 
         if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
             return redirect()->route('all.messages.user', ['id'=> $bidder->id]);

@@ -1,7 +1,13 @@
 @extends('admin.default.layouts.app')
 
 @section('content')
-
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .checked {
+        color: orange;
+      }
+</style>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -79,7 +85,13 @@
                                         @endif
                                     </td>
                        
-                                    <td>{{ $support_ticket->rating }}</td>
+                                    <td>{{ $support_ticket->rating }}
+                                        <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                                    </td>
                                     <td>{{ $support_ticket->msg }}</td>
                                     <td class="text-right">
                                         <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('support-tickets.show', encrypt($support_ticket->id))}}" title="{{ translate('Edit') }}">

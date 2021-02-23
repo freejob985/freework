@@ -101,7 +101,7 @@
 
                                 <td>
                                     @for ($i = 0; $i < 10; $i++)
-                                    @if ($support_ticket->rating>10)
+                                    @if ($support_ticket->rating<10)
                                     <span class="fa fa-star checked"></span>     
                                     @endif
                                     <span class="fa fa-star"></span>

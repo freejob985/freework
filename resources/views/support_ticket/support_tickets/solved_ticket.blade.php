@@ -103,8 +103,10 @@
                                     @for ($i = 0; $i < 10; $i++)
                                     @if ($support_ticket->rating<10)
                                     <span class="fa fa-star checked"></span>     
-                                    @endif
+                                    @else
                                     <span class="fa fa-star"></span>
+                                    @endif
+                                 
 
                                     @endfor
                                   

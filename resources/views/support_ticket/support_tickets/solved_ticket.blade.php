@@ -6,7 +6,7 @@
 <style>
     .checked {
         color: orange;
-      }
+    }
 </style>
 <div class="row">
     <div class="col-lg-12">
@@ -17,24 +17,36 @@
                         <h5 class="mb-md-0 h6">{{translate('Solved Tickets')}}</h5>
                     </div>
                     <div class="col-md-3 ml-auto">
-                        <select class="form-control form-control-sm aiz-selectpicker mb-2 mb-md-0" name="priority" id="priority" onchange="solved_ticket_list()">
+                        <select class="form-control form-control-sm aiz-selectpicker mb-2 mb-md-0" name="priority"
+                            id="priority" onchange="solved_ticket_list()">
                             <option value="">Sort by options</option>
-                            <option value="regular" @isset($priority) @if($priority == 'regular') selected @endif @endisset>{{translate('Priority (Regular)')}}</option>
-                            <option value="low" @isset($priority) @if($priority == 'low') selected @endif @endisset>{{translate('Priority (Low)')}}</option>
-                            <option value="medium" @isset($priority) @if($priority == 'medium') selected @endif @endisset>{{translate('Priority (Medium)')}}</option>
-                            <option value="high" @isset($priority) @if($priority == 'high') selected @endif @endisset>{{translate('Priority (High)')}}</option>
+                            <option value="regular" @isset($priority) @if($priority=='regular' ) selected @endif
+                                @endisset>{{translate('Priority (Regular)')}}</option>
+                            <option value="low" @isset($priority) @if($priority=='low' ) selected @endif @endisset>
+                                {{translate('Priority (Low)')}}</option>
+                            <option value="medium" @isset($priority) @if($priority=='medium' ) selected @endif
+                                @endisset>{{translate('Priority (Medium)')}}</option>
+                            <option value="high" @isset($priority) @if($priority=='high' ) selected @endif @endisset>
+                                {{translate('Priority (High)')}}</option>
                         </select>
                     </div>
                     <div class="col-md-3 ml-auto">
-                        <select class="form-control form-control-sm aiz-selectpicker mb-2 mb-md-0" name="type" id="type" onchange="solved_ticket_list()">
+                        <select class="form-control form-control-sm aiz-selectpicker mb-2 mb-md-0" name="type" id="type"
+                            onchange="solved_ticket_list()">
                             <option value="">{{translate('Sort by options')}}</option>
-                            <option value="created_at,asc" @isset($col_name , $query) @if($col_name == 'created_at' && $query == 'asc') selected @endif @endisset>{{translate('Sort by Time (Old > New)')}}</option>
-                            <option value="created_at,desc" @isset($col_name , $query) @if($col_name == 'created_at' && $query == 'desc') selected @endif @endisset>{{translate('Sort by Time (New > Old)')}}</option>
+                            <option value="created_at,asc" @isset($col_name , $query) @if($col_name=='created_at' &&
+                                $query=='asc' ) selected @endif @endisset>{{translate('Sort by Time (Old > New)')}}
+                            </option>
+                            <option value="created_at,desc" @isset($col_name , $query) @if($col_name=='created_at' &&
+                                $query=='desc' ) selected @endif @endisset>{{translate('Sort by Time (New > Old)')}}
+                            </option>
                         </select>
                     </div>
                     <div class="col-md-3">
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control form-control-sm" placeholder="Type Ticket no and Hit Enter" name="search" @isset($sort_search) value="{{ $sort_search }}" @endisset>
+                            <input type="text" class="form-control form-control-sm"
+                                placeholder="Type Ticket no and Hit Enter" name="search" @isset($sort_search)
+                                value="{{ $sort_search }}" @endisset>
                             <div class="input-group-append">
                                 <button class="btn btn-light" type="submit">
                                     <i class="las la-search la-rotate-270"></i>
@@ -63,45 +75,51 @@
                         </thead>
                         <tbody>
                             @foreach($support_tickets as $key => $support_ticket)
-                                <tr class="clickable-row" data-href="{{ route('support-tickets.show', encrypt($support_ticket->id)) }}">
-                                    <td>{{ $support_ticket->ticket_id }}</td>
-                                    <td>{{ $support_ticket->subject }} @if ($support_ticket->seen == '0') <span class="badge badge-success float-right">New</span> @endif</td>
-                                    <td>
-                                        @if ($support_ticket->sender != null)
-                                            {{ $support_ticket->sender->name }}
-                                        @endif
-                                    </td>
-                                    <td class="text-capitalize">{{ $support_ticket->priority }}</td>
-                                    <td>
-                                        @if ($support_ticket->supportCategory != null)
-                                            {{ $support_ticket->supportCategory->name }}
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($support_ticket->assigned_user_id != null)
-                                            {{ $support_ticket->assigned->name }}
-                                        @else
-                                            {{translate('No Agent')}}
-                                        @endif
-                                    </td>
-                       
-                                    <td>{{ $support_ticket->rating }}
-                                        <span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
-                                    </td>
-                                    <td>{{ $support_ticket->msg }}</td>
-                                    <td class="text-right">
-                                        <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{route('support-tickets.show', encrypt($support_ticket->id))}}" title="{{ translate('Edit') }}">
-                                            <i class="las la-edit"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('support-tickets.destroy', $support_ticket->id)}}" title="{{ translate('Delete') }}">
-                                            <i class="las la-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr class="clickable-row"
+                                data-href="{{ route('support-tickets.show', encrypt($support_ticket->id)) }}">
+                                <td>{{ $support_ticket->ticket_id }}</td>
+                                <td>{{ $support_ticket->subject }} @if ($support_ticket->seen == '0') <span
+                                        class="badge badge-success float-right">New</span> @endif</td>
+                                <td>
+                                    @if ($support_ticket->sender != null)
+                                    {{ $support_ticket->sender->name }}
+                                    @endif
+                                </td>
+                                <td class="text-capitalize">{{ $support_ticket->priority }}</td>
+                                <td>
+                                    @if ($support_ticket->supportCategory != null)
+                                    {{ $support_ticket->supportCategory->name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($support_ticket->assigned_user_id != null)
+                                    {{ $support_ticket->assigned->name }}
+                                    @else
+                                    {{translate('No Agent')}}
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @for ($i = 0; $i < $support_ticket->rating; $i++)
+                                    <span class="fa fa-star checked"></span>  
+                                    @endfor
+                                  
+            
+                                </td>
+                                <td>{{ $support_ticket->msg }}</td>
+                                <td class="text-right">
+                                    <a class="btn btn-soft-primary btn-icon btn-circle btn-sm"
+                                        href="{{route('support-tickets.show', encrypt($support_ticket->id))}}"
+                                        title="{{ translate('Edit') }}">
+                                        <i class="las la-edit"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete"
+                                        data-href="{{route('support-tickets.destroy', $support_ticket->id)}}"
+                                        title="{{ translate('Delete') }}">
+                                        <i class="las la-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                         {{ $support_tickets->links() }}
@@ -115,7 +133,7 @@
 @endsection
 
 @section('modal')
-    @include('admin.default.partials.delete_modal')
+@include('admin.default.partials.delete_modal')
 @endsection
 
 @section('script')

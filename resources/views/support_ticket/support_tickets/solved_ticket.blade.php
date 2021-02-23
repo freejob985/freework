@@ -49,7 +49,7 @@
                                 <th data-breakpoints="md">{{translate('Priority')}}</th>
                                 <th data-breakpoints="md">{{translate('Category')}}</th>
                                 <th data-breakpoints="sm">{{translate('Suport Agent')}}</th>
-                                <th data-breakpoints="sm">{{translate('Submitted Date')}}</th>
+
                                 <th data-breakpoints="sm">التقيم</th>
                                 <th data-breakpoints="sm">الرسالة</th>
                                 <th width="10%" class="text-right">{{translate('Option')}}</th>

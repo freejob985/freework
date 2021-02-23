@@ -52,7 +52,6 @@
                                 <th data-breakpoints="sm">{{translate('Submitted Date')}}</th>
                                 <th data-breakpoints="sm">التقيم</th>
                                 <th data-breakpoints="sm">الرسالة</th>
-                                <th data-breakpoints="sm">{{translate('Submitted Date')}}</th>
                                 <th width="10%" class="text-right">{{translate('Option')}}</th>
                             </tr>
                         </thead>

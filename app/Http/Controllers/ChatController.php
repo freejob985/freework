@@ -43,9 +43,9 @@ class ChatController extends Controller
 
         else {
             $bidder = User::where('user_name', $request->user_name)->first();
-            if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
+            if (DB::table('chat_threads')->where('receiver_user_id', $bidder->id)->exists()) {
                 return redirect()->route('all.messages.user', ['id'=> $bidder->id]);
-            }else{
+            } else {
                 $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $bidder->id)->first();
                 if ($existing_chat_thread == null) {
                     $existing_chat_thread = new ChatThread;
@@ -55,9 +55,9 @@ class ChatController extends Controller
                     $existing_chat_thread->save();
                 }
         
-                return redirect()->route('all.messages',['id'=> $bidder->id]);
+                return redirect()->route('all.messages', ['id'=> $bidder->id]);
+            }
         }
-
        
     }
 

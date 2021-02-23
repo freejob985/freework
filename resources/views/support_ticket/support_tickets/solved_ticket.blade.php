@@ -79,7 +79,7 @@
                                             {{translate('No Agent')}}
                                         @endif
                                     </td>
-                                    <td>{{ $support_ticket->created_at }}</td>
+                       
                                     <td>{{ $support_ticket->rating }}</td>
                                     <td>{{ $support_ticket->msg }}</td>
                                     <td class="text-right">

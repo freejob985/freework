@@ -229,16 +229,7 @@
                             </svg></button>
                     </form>
                     <br>
-                    <button class="btn btn-success btn-block "
-                        onclick="hiring_modal({{ $project->id }}, {{ $item_project_bids->bid_by_user_id }})"
-                        type="button">قبول العرض <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                            viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"
-                            stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                        </svg></button>
+           
                 </div>
                 @endif
                 @endif

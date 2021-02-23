@@ -100,14 +100,9 @@
                                 </td>
 
                                 <td>
-                                    @for ($i = 0; $i < 10; $i++)
-                                    @if ($support_ticket->rating<10)
-                                    <span class="fa fa-star checked"></span>     
-                                    @else
-                                    <span class="fa fa-star"></span>
-                                    @endif
-                                 
-
+                                    @for ($i = 0; $i < $support_ticket->rating; $i++)
+                                    
+                                    <span class="fa fa-star checked"></span>  
                                     @endfor
                                   
             

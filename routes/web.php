@@ -87,8 +87,6 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function () {
     Route::get('/chat/{id}', 'ChatController@chat_index_')->name('all.messages.user');
 
 
-    Route::get('/chat/{id?}/freelancer', 'ChatController@freelancer')->name('all.messages.freelancer');
-    Route::get('/chat/{id}/freelancer', 'ChatController@freelancer_')->name('all.messages.user.freelancer');
 
 
 

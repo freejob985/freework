@@ -213,11 +213,7 @@
       
 
                 @if (Auth::check())
-
-
                 @if (isClient() and Auth::user()->id==$project->client_user_id)
-
-
                 <div class="container">
                     <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
                         @csrf

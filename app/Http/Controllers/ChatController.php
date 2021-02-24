@@ -17,8 +17,7 @@ class ChatController extends Controller
 {
     public function index(Request $request)
     {
-        if(isClient()){
-            $bidder = User::where('user_name', $request->user_name)->first();
+        $bidder = User::where('user_name', $request->user_name)->first();
             if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
                 return redirect()->route('all.messages.user', ['id'=> $bidder->id]);
             }else{
@@ -33,33 +32,8 @@ class ChatController extends Controller
         
                 return redirect()->route('all.messages',['id'=> $bidder->id]);
         }
-     
     
-      
-
-
-
-        }
-
-        else {
-            $bidder = User::where('user_name', $request->user_name)->first();
-            if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
-                return redirect()->route('all.messages.user', ['id'=> $bidder->id]);
-            }else{
-                $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $bidder->id)->first();
-                if ($existing_chat_thread == null) {
-                    $existing_chat_thread = new ChatThread;
-                    $existing_chat_thread->thread_code = $bidder->id.date('Ymd').Auth::user()->id;
-                    $existing_chat_thread->sender_user_id = Auth::user()->id;
-                    $existing_chat_thread->receiver_user_id = $bidder->id;
-                    $existing_chat_thread->save();
-                }
-        
-                return redirect()->route('all.messages',['id'=> $bidder->id]);
-        }
-     
-    
-        }
+ 
        
     }
 

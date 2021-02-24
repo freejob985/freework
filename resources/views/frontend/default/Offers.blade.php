@@ -217,7 +217,7 @@
                         @csrf
                         <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
                         <input type="hidden" id="user_name" name="user_name"
-                            value="{{ get_current_user__($project->client_user_id,"user_name") }}">
+                            value="{{ get_current_user__($item_project_bids->bid_by_user_id,"user_name") }}">
                         <button type="submit" class="btn btn-warning btn-block">{{ translate('Call for Interview') }}
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
                                 fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square"

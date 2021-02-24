@@ -86,6 +86,12 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function () {
     Route::get('/chat/{id?}', 'ChatController@chat_index')->name('all.messages');
     Route::get('/chat/{id}', 'ChatController@chat_index_')->name('all.messages.user');
 
+
+    Route::get('/chat/{id?}/freelancer', 'ChatController@freelancer')->name('all.messages.freelancer');
+    Route::get('/chat/{id}/freelancer', 'ChatController@freelancer_')->name('all.messages.user.freelancer');
+
+
+
     Route::get('/single-chat/{id}', 'ChatController@chat_view')->name('chat_view');
     Route::get('/chat/refresh/{id}', 'ChatController@chat_refresh')->name('chat_refresh');
     Route::post('/chat/old-messages', 'ChatController@get_old_messages')->name('get-old-message');

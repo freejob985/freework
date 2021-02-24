@@ -43,10 +43,10 @@ class ChatController extends Controller
 
         else {
             $bidder = User::where('user_name', $request->user_name)->first();
-            if (DB::table('chat_threads')->where('receiver_user_id', $bidder->id)->exists()) {
-                return redirect()->route('all.messages.user', ['id'=> $bidder->id]);
-            } else {
-                $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', Auth::user()->id)->first();
+            if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
+                return redirect()->route('all.messages.user.freelancer', ['id'=> $bidder->id]);
+            }else{
+                $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $bidder->id)->first();
                 if ($existing_chat_thread == null) {
                     $existing_chat_thread = new ChatThread;
                     $existing_chat_thread->thread_code = $bidder->id.date('Ymd').Auth::user()->id;
@@ -55,8 +55,10 @@ class ChatController extends Controller
                     $existing_chat_thread->save();
                 }
         
-                return redirect()->route('all.messages', ['id'=> $bidder->id]);
-            }
+                return redirect()->route('all.messages.freelancer',['id'=> $bidder->id]);
+        }
+     
+    
         }
        
     }
@@ -70,6 +72,22 @@ class ChatController extends Controller
     public function chat_index_($id)
     {
         $chat_threads = ChatThread::where('sender_user_id', Auth::user()->id)->orWhere('receiver_user_id', $id)->get();
+        return view('frontend.default.user.msg', compact('chat_threads','id'));
+    }
+
+
+
+
+
+    public function freelancer($id=\null)
+    {
+        $chat_threads = ChatThread::Where('receiver_user_id', $id)->get();
+        return view('frontend.default.user.msg', compact('chat_threads','id'));
+    }
+//شات
+    public function freelancer_($id)
+    {
+        $chat_threads = ChatThread::Where('receiver_user_id', $id)->get();
         return view('frontend.default.user.msg', compact('chat_threads','id'));
     }
 

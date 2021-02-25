@@ -16,6 +16,7 @@ class SearchController extends Controller
 {
     public function index(Request $request){
         if($request->type == 'freelancer'){
+            dd($request->all());
             $type = 'freelancer';
             $keyword = $request->keyword;
             $rating = $request->rating;

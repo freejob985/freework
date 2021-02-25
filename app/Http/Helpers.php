@@ -67,8 +67,9 @@ function userOnlineStatusonline_()
             // else
             //     echo "User " . $user->name . " is offline.";
         }
-        return implode(",",$id) ;
+      
     }
+    return implode(",",$id) ;
 }
 
 function userOnlineStatusoffline()

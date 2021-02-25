@@ -141,11 +141,13 @@
                                                         ({{ count($freelancer->user->reviews) }} {{ translate('Reviews') }})
                                                     </span>
                                                 </div>
+                                                @if(!empty( $freelancer->user->address->country_id))
                                                 @if ($freelancer->user->address->city_id != null && $freelancer->user->address->country_id != null)
                                                     <div>
                                                         <i class="las la-map-marker opacity-50"></i>
                                                         <span>{{ $freelancer->user->address->city->name }}, {{ $freelancer->user->address->country->name }}</span>
                                                     </div>
+                                                @endif
                                                 @endif
                                             </div>
                                             @if($freelancer->skills != null)

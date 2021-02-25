@@ -16,12 +16,23 @@ class SearchController extends Controller
 {
     public function index(Request $request){
         if($request->type == 'freelancer'){
-            dd($request->all());
+//             array:4 [▼
+//   "status" => "20"
+//   "rating" => null
+//   "type" => "freelancer"
+//   "keyword" => null
+// ]
+
             $type = 'freelancer';
             $keyword = $request->keyword;
             $rating = $request->rating;
 
             $freelancers = UserProfile::where('user_role_id', '2');
+
+            if($request->status != null){
+             //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
+                $freelancers = $freelancers->whereIn('user_id', $request->status);
+            }
 
             if($request->keyword != null){
                 $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');

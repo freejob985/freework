@@ -146,19 +146,19 @@ class HomeController extends Controller
     }
 
     //Show all project list to user
-    // public function all_projects(Request $request)
-    // {
-    //     $projects = Project::biddable()->notcancel()->where('private', '0')->latest();
-    //
-    //     $keyword = null;
-    //     if($request->has('keyword')){
-    //         $keyword = $request->keyword;
-    //         $projects = $projects->where('name', 'like', '%'.$keyword.'%');
-    //     }
-    //     $total = count($projects->get());
-    //     $projects = $projects->paginate(8);
-    //     return view('frontend.default.projects-listing', compact('projects', 'keyword', 'total'));
-    // }
+     public function all_projects(Request $request)
+    {
+      $projects = Project::biddable()->notcancel()->where('private', '0')->latest();
+   
+       $keyword = null;
+        if($request->has('keyword')){
+           $keyword = $request->keyword;
+            $projects = $projects->where('name', 'like', '%'.$keyword.'%');
+       }
+       $total = count($projects->get());
+        $projects = $projects->paginate(8);
+        return view('frontend.default.projects-listing', compact('projects', 'keyword', 'total'));
+    }
 
     //Show specific client details to user
     public function client_details($username)

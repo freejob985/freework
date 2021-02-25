@@ -181,7 +181,7 @@
 	                                        @if($project->hire_invitation->status == 'pending')
 	                                        	<a href="{{ route('projects.edit',encrypt($project->id)) }}" class="btn btn-primary btn-sm fw-500">{{ translate('Edit') }}</a>
 	                                        @else
-	                                        	<a href="javascript:void(0)" class="btn btn-primary btn-sm fw-500 confirm-complete" data-href="{{route('projects.complete', $project->id)}}">{{ translate('Complete This') }}</a>
+	                                        	<a href="javascript:void(0)" class="btn btn-primary btn-sm fw-500 confirm-complete" data-href="{{route('projects.my_completed_project', $project->id)}}">{{ translate('Complete This') }}</a>
 	                                        @endif
 										</div>
 									@elseif ($project->biddable == 0)

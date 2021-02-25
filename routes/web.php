@@ -65,6 +65,7 @@ Route::group(['middleware' => ['user']], function () {
 });
 
 Route::group(['middleware' => ['user', 'packagePurchased']], function () {
+    
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware(['Maintenance']);
     Route::get('/Transformations/{user}', 'HomeController@Transformation')->name('Transformations')->middleware(['Maintenance']);
     Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project')->middleware(['Maintenance']);;

@@ -65,7 +65,7 @@
                                                         </div>
                                                     </a>
                                                 @else
-                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit {{ ( $single_chat_thread->receiver_user_id == $id) ? 'receiver_user_id' : '' }}" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
+                                                    <a href="javascript:void(0)" class="chat-user-item p-3 d-block text-inherit {{ ( $single_chat_thread->sender_user_id == $id) ? 'receiver_user_id' : '' }}" data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}" onclick="loadChats(this)">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm mr-3 flex-shrink-0">
                                                                 @if ($single_chat_thread->sender->photo != null)

@@ -54,7 +54,7 @@ class ChatController extends Controller
 
 
                     $existing_chat_thread = new ChatThread;
-                    $existing_chat_thread->thread_code = $bidder->id.date('Ymd').Auth::user()->id;
+                    $existing_chat_thread->thread_code = Auth::user()->id.date('Ymd').Auth::user()->id;
                     $existing_chat_thread->sender_user_id = $bidder->id;
                     $existing_chat_thread->receiver_user_id = Auth::user()->id; 
                     $existing_chat_thread->save();

@@ -65,7 +65,7 @@ Route::group(['middleware' => ['user']], function () {
 });
 
 Route::group(['middleware' => ['user', 'packagePurchased']], function () {
-    
+
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware(['Maintenance']);
     Route::get('/Transformations/{user}', 'HomeController@Transformation')->name('Transformations')->middleware(['Maintenance']);
     Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project')->middleware(['Maintenance']);;
@@ -82,6 +82,8 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function () {
     Route::post('/profile-settings/verification-update', 'VerificationController@verification_store')->name('user_profile.verification_store');
 
     Route::post('/interview-chat', 'ChatController@index')->name('call_for_interview');
+    Route::post('/interview-chat/us', 'ChatController@index_')->name('call_for_interview_');
+
     Route::post('/chat-reply', 'ChatController@chat_reply')->name('chat.reply');
 
     Route::get('/chat/{id?}', 'ChatController@chat_index')->name('all.messages');

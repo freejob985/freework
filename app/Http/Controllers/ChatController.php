@@ -32,24 +32,44 @@ class ChatController extends Controller
         
                 return redirect()->route('all.messages',['id'=> $bidder->id]);
         }
-    
-
-
-
-
-        if(isClient()){
-
-        }else{
-            
-        }
-
-
-
-
-
- 
        
     }
+
+
+
+
+    public function index_(Request $request)
+    {
+        $bidder = User::where('user_name', $request->user_name)->first();
+            if (DB::table('chat_threads')->where('receiver_user_id',  $bidder->id)->exists()) {
+                return redirect()->route('all.messages.user', ['id'=> $bidder->id]);
+            }else{
+                $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $bidder->id)->first();
+                if ($existing_chat_thread == null) {
+                    $existing_chat_thread = new ChatThread;
+                    $existing_chat_thread->thread_code = $bidder->id.date('Ymd').Auth::user()->id;
+                    $existing_chat_thread->sender_user_id = Auth::user()->id;
+                    $existing_chat_thread->receiver_user_id = $bidder->id;
+                    $existing_chat_thread->save();
+
+
+                    $existing_chat_thread = new ChatThread;
+                    $existing_chat_thread->thread_code = $bidder->id.date('Ymd').Auth::user()->id;
+                    $existing_chat_thread->sender_user_id = $bidder->id;
+                    $existing_chat_thread->receiver_user_id = Auth::user()->id; 
+                    $existing_chat_thread->save();
+
+
+                }
+        
+                return redirect()->route('all.messages',['id'=> $bidder->id]);
+        }
+       
+    }
+
+
+
+
 
     public function chat_index($id=\null)
     {

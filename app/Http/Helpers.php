@@ -56,6 +56,21 @@ function userOnlineStatusonline()
     }
 }
 
+
+function userOnlineStatusonline_()
+{
+    $users = User::all();
+    $id = array();
+    foreach ($users as $user) {
+        if (Cache::has('user-is-online-' . $user->id)) {
+            $id[]=$user->id;
+            // else
+            //     echo "User " . $user->name . " is offline.";
+        }
+        return $id;
+    }
+}
+
 function userOnlineStatusoffline()
 {
     $users = User::all();

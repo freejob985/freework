@@ -29,7 +29,7 @@
                                     </h6>
                                     <div class="aiz-radio-list">
                                         <label class="aiz-radio">
-                                            <input type="radio" checked="checked" name="status"  onchange="applyFilter()" value=""> {{ translate('Any status') }}
+                                            <input type="radio" checked="checked" name="status"  onchange="applyFilter()" value="{{ userOnlineStatusonline_() }}"> {{ translate('Any status') }}
                                             <span class="aiz-square-check"></span>
                                             <span class="float-right text-secondary fs-12">({{ userOnlineStatusonline() }})</span>
                                         </label>

@@ -83,7 +83,7 @@
                                                  @csrf
                                                  
                                                 <input type="hidden" id="user_name" name="user_name"
-                                                value="{{ get_current_user__(Auth::user()->id,"user_name") }}">
+                                                value="{{ get_current_user__($private_project->client->id,"user_name") }}">
 
 
                                             <button   type="submit"  class="btn btn-primary btn-sm">{{ translate('Chat With Client') }}</button>

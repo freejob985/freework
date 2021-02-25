@@ -70,7 +70,7 @@ class HireController extends Controller
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
                 "You have recieved a proposal for a project by",
-                route('project.details', ['slug' => $project->slug], false),
+                route('private_projects', false),
                 $request->freelancer_id,
                 Auth::user()->id,
                 'freelancer'
@@ -79,7 +79,7 @@ class HireController extends Controller
                 "You got a new project proposal - " . $project->name,
                 "You have recieved a proposal for a project by " . $project->client->name,
                 get_email_by_user_id($request->freelancer_id),
-                route('project.details', ['slug' => $project->slug])
+                route('private_projects')
             );
 
             flash('Invitation has been sent successfully.')->success();

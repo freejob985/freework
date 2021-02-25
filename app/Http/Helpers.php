@@ -69,7 +69,7 @@ function userOnlineStatusonline_()
         }
       
     }
-    dd(implode(",",$id));
+   // dd(implode(",",$id));
     return implode(",",$id) ;
 }
 

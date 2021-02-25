@@ -79,10 +79,10 @@
                                             
                                             <a href="{{ route('hiring.reject', encrypt($private_project->id)) }}" class="btn btn-danger btn-sm">{{ translate('Reject') }}</a>
                                             <a href="javascript:void(0)" class="btn btn-success btn-sm" onclick="hiring_modal('{{ $private_project->project->name }}',{{ $private_project->project->price }}, {{ $private_project->project->id }}, {{ Auth::user()->id }})">{{ translate('Accpet') }}</a>
-                                            <form class="mt-2" action="{{ route('call_for_interview_') }}" method="post">
+                                            <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
                                                  @csrf
                                                 <input type="hidden" id="user_name" name="user_name"
-                                                value="{{ get_current_user__(Auth::user()->id,"user_name") }}">
+                                                value="{{ get_current_user__($private_project->client->id,"user_name") }}">
 
 
                                             <button   type="submit"  class="btn btn-primary btn-sm">{{ translate('Chat With Client') }}</button>

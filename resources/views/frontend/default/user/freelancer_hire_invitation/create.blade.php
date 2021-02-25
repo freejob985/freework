@@ -106,7 +106,9 @@
                                     </div>
                                 @endif
                                 @if ($client_package->long_term_limit > 0)
-                                    <div class="custom-control custom-radio custom-control-inline">
+                                    <div class="custom-control custom-radio custom-control-inline" style="
+                                    display: none;
+                                ">
                                         <input type="radio" id="projectTypeLong" name="projectType" class="custom-control-input" value="Long Term">
                                         <label class="custom-control-label" for="projectTypeLong">Long term</label>
                                     </div>

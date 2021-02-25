@@ -78,7 +78,7 @@
                                         <div>
                                             <a href="{{ route('hiring.reject', encrypt($private_project->id)) }}" class="btn btn-danger btn-sm">{{ translate('Reject') }}</a>
                                             <a href="javascript:void(0)" class="btn btn-success btn-sm" onclick="hiring_modal('{{ $private_project->project->name }}',{{ $private_project->project->price }}, {{ $private_project->project->id }}, {{ Auth::user()->id }})">{{ translate('Accpet') }}</a>
-                                            <a href="{{ route('all.messages') }}" class="btn btn-primary btn-sm">{{ translate('Chat With Client') }}</a>
+                                            <a href="{{ route('all.messages',['id'=> $private_project->client->id]) }}" class="btn btn-primary btn-sm">{{ translate('Chat With Client') }}</a>
                                         </div>
                                     </div>
                                 </div>

@@ -33,9 +33,16 @@ class SearchController extends Controller
 
              //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
                 $freelancers = $freelancers->whereIn('user_id',explode(",",$request->status) );
+            }else{
+                
+                $freelancers = $freelancers->whereNotIn('user_id',explode(",",$request->status) );
             }
 
             if($request->keyword != null){
+                $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
+                $freelancers = $freelancers->whereIn('user_id', $user_ids);
+            }else{
+                
                 $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
                 $freelancers = $freelancers->whereIn('user_id', $user_ids);
             }

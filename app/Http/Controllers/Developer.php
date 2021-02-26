@@ -138,7 +138,7 @@ class Developer extends Controller
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
                 "تم قبول الخدمة",
-                route('service.show'),
+                route('service.show', $project->slug),
                 $id,
                 1,
                 'freelancer'

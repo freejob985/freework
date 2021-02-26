@@ -39,14 +39,10 @@ class SearchController extends Controller
             if ($request->userOnlineStatusonline != null) {
 
                 //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
-                $freelancers = $freelancers->whereNotIn('user_id', explode(",", $request->status));
+                $freelancers = $freelancers->whereNotIn('user_id', explode(",", $request->userOnlineStatusonline));
             }
 
-            if ($request->status != null) {
-
-                //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
-                $freelancers = $freelancers->whereIn('user_id', explode(",", $request->status));
-            }
+   
 
 
 

@@ -148,6 +148,65 @@ class HireController extends Controller
         return back();
     }
 
+
+
+
+    public function hire__(Request $request)
+    {
+
+
+       
+        $project = Project::find($request->project_id);
+
+   //     dd($project);
+        $project->biddable = 0;
+        $project->save();
+
+        if ($project->project_user == null) {
+            $project_user = new ProjectUser;
+            $project_user->project_id = $request->project_id;
+            $project_user->user_id = $request->user_id;
+            $project_user->hired_at = $request->amount;
+            $project_user->save();
+        }
+
+        $invited_project = HireInvitation::where('project_id', $project->id)->first();
+        if ($invited_project != null) {
+            $invited_project->status = 'accepted';
+            $invited_project->save();
+        }
+
+        //from freelancer to client
+        NotificationUtility::set_notification(
+            "freelancer_hired_for_project",
+            "You have been hired for a project by",
+            route('project.details', ['slug' => $project->slug], false),
+            $request->user_id,
+            Auth::user()->id,
+            'freelancer'
+        );
+        EmailUtility::send_email(
+            "You have been hired - " . $project->name,
+            "You have been hired for a project by " . $project->client->name,
+            get_email_by_user_id($request->user_id),
+            route('project.details', ['slug' => $project->slug])
+        );
+//====================================================
+        $amount = DB::table('project_bids')->where('project_id', $request->project_id)->value('amount');
+        $bid_by_user_id = DB::table('project_bids')->where('project_id', $request->project_id)->value('bid_by_user_id');
+     DB::table('milestone_payments')->insert([
+        'project_id' => $request->input('project_id'),
+        'client_user_id' => Auth::user()->id,
+        'freelancer_user_id' =>$request->user_id,
+        'amount' =>$amount,
+        'message' => "تسديد اجمالي المبلغ",
+                ]);
+//=====================================================
+        flash('You have hired successfully.')->success();
+        return redirect()->route('milestone-requests.all');
+
+        return back();
+    }
     //rejecting a private project offer
     public function reject(Request $request)
     {

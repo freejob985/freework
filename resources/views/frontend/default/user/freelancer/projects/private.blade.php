@@ -127,12 +127,12 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ translate('Confirm Hiring') }}11111111111</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ translate('Confirm Hiring') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-body" id="hiring_modal_body">
-                <form class="form-horizontal" action="{{ route('hiring_confirmation_store') }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('hiring_confirmation_store_') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="user_id" value="" required>

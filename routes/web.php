@@ -100,6 +100,8 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function () {
     //hire from interview
     Route::get('/hiring-invitation/reject{id}', 'HireController@reject')->name('hiring.reject');
     Route::post('/hiring-confirmation-store', 'HireController@hire')->name('hiring_confirmation_store');
+    Route::post('/hiring-confirmation-store/se', 'HireController@hire__')->name('hiring_confirmation_store_');
+
 
     //milestone message showing exampleModalLabel
     Route::post('/milestone-requests-message', 'MilestonePaymentController@milestone_request_message')->name('milestone_request_message_show_modal');

@@ -135,8 +135,19 @@ class Developer extends Controller
 
         $project->project_approval = $request->status;
         if ($project->save()) {
+            NotificationUtility::set_notification(
+                "freelancer_proposal_for_project",
+                "تم قبول الخدمة",
+                route('service.show'),
+                $id,
+                1,
+                'freelancer'
+            );
             //dd("Catch errors for script and full tracking ( 1 )");
             return 1;
+
+
+
         } else {
             //    dd("Catch errors for script and full tracking ( 2 )");
             return 0;

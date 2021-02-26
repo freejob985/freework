@@ -11,7 +11,6 @@ use \App\Models\Skill;
 use \App\Models\SystemConfiguration;
 use \App\Models\UserProfile;
 use \App\User;
-use DB;
 
 class SearchController extends Controller
 {
@@ -34,9 +33,9 @@ class SearchController extends Controller
             if ($request->status != null) {
 
                 //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
-               // dd(explode(",", $request->status));
+                dd(explode(",", $request->status));
                 $freelancers = $freelancers->whereIn('user_id', explode(",", $request->status));
-                //  dd($freelancers);
+              //  dd($freelancers);
             }
 
             if ($request->userOnlineStatusonline != null) {
@@ -44,10 +43,13 @@ class SearchController extends Controller
                 //   $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
                 $freelancers = $freelancers->whereNotIn('user_id', explode(",", $request->userOnlineStatusonline));
 
-                $freelancers = DB::table('user_profiles')
-                    ->where('user_role_id', '2')
-                    ->whereNotIn('user_id', explode(",", $request->userOnlineStatusonline)) ;
+                
             }
+
+   
+
+
+
 
             if ($request->keyword != null) {
                 $user_ids = User::where('name', 'like', '%' . $keyword . '%')->pluck('id');

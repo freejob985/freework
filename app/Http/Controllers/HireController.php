@@ -95,8 +95,10 @@ class HireController extends Controller
     {
 
 
-        dd($request->all());
+       
         $project = Project::find($request->project_id);
+
+        dd($project);
         $project->biddable = 0;
         $project->save();
 

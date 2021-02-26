@@ -11,6 +11,7 @@ use \App\Models\Skill;
 use \App\Models\SystemConfiguration;
 use \App\Models\UserProfile;
 use \App\User;
+use DB;
 
 class SearchController extends Controller
 {

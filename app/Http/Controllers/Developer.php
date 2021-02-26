@@ -139,7 +139,7 @@ class Developer extends Controller
                 "freelancer_proposal_for_project",
                 "تم قبول الخدمة",
                 route('service.show', $project->slug),
-                $id,
+                $project->user_id,
                 1,
                 'freelancer'
             );

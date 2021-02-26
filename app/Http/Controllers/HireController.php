@@ -93,6 +93,9 @@ class HireController extends Controller
     //after taking interview client hires freelancer
     public function hire(Request $request)
     {
+
+
+        dd($request->all());
         $project = Project::find($request->project_id);
         $project->biddable = 0;
         $project->save();

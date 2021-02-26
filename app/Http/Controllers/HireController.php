@@ -90,7 +90,7 @@ class HireController extends Controller
         }
     }
 
-    //after taking interview client hires freelancer
+    //after taking interview client hires freelancer111111111111111111111111111111
     public function hire(Request $request)
     {
 

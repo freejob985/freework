@@ -66,6 +66,12 @@ class HireController extends Controller
                 $existing_chat_thread->save();
             }
 
+
+
+
+            
+
+
             //from client to freelancer
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
@@ -198,7 +204,7 @@ class HireController extends Controller
         'project_id' => $request->input('project_id'),
         'client_user_id' => Auth::user()->id,
         'freelancer_user_id' =>$request->user_id,
-        'amount' =>$amount,
+        'amount' =>$request->amount,
         'message' => "تسديد اجمالي المبلغ",
                 ]);
 //=====================================================

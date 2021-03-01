@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/digigat1/public_html/
-    - /bin/cp * $DEPLOYPATH
+    - /sub.digi-gate.com/ * $DEPLOYPATH

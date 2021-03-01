@@ -16,7 +16,7 @@ class Developer extends Controller
     public function Bids_Modification(Request $request)
     {
 
-      //  dd($request->all());
+        //  dd($request->all());
         DB::table('project_bids')
             ->where('id', $request->input('id'))
             ->update([
@@ -145,8 +145,6 @@ class Developer extends Controller
             );
             //dd("Catch errors for script and full tracking ( 1 )");
             return 1;
-
-
 
         } else {
             //    dd("Catch errors for script and full tracking ( 2 )");

@@ -129,6 +129,15 @@ class AdminProjectController extends Controller
         $project = Project::findOrFail($request->id);
         $project->project_approval = $request->status;
         if($project->save()){
+          
+            NotificationUtility::set_notification(
+                "freelancer_proposal_for_project",
+                "تم قبول الخدمة",
+                route('project.details', $project->slug),
+                $project->user_id,
+                1,
+                'client'
+            );
             return 1;
         }
         else {

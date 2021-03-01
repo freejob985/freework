@@ -122,6 +122,24 @@ class HireController extends Controller
             $invited_project->save();
         }
 
+
+
+
+        if (DB::table('chat_threads')->where('receiver_user_id',  $request->user_id)->exists()) {
+        }else{
+            $existing_chat_thread = ChatThread::where('sender_user_id', Auth::user()->id)->where('receiver_user_id', $request->user_id)->first();
+            if ($existing_chat_thread == null) {
+                $existing_chat_thread = new ChatThread;
+                $existing_chat_thread->thread_code = $request->user_id.date('Ymd').Auth::user()->id;
+                $existing_chat_thread->sender_user_id = Auth::user()->id;
+                $existing_chat_thread->receiver_user_id =$request->user_id;
+                $existing_chat_thread->save();
+            }
+        }
+
+
+
+
         //from freelancer to client
         NotificationUtility::set_notification(
             "freelancer_hired_for_project",

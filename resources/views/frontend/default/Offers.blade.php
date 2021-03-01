@@ -211,6 +211,7 @@
                 </p>
 
                 @if (Auth::check())
+                @if ($project_users)
                 @if (isFreelancer())
                 <div class="container">
                     <form class="mt-2" action="{{ route('call_for_interview') }}" method="post">
@@ -231,6 +232,7 @@
                     <br>
              
                 </div>
+                @endif
                 @endif
                 @endif
 

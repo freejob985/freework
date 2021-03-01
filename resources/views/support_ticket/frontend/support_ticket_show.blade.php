@@ -207,26 +207,6 @@
                                             </label>
 
 
-                                            <label>
-                                                <input type="radio" name="rating" value="6">
-                                                <i class="las la-star active"></i>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="rating" value="7">
-                                                <i class="las la-star active"></i>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="rating" value="8" >
-                                                <i class="las la-star active"></i>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="rating" value="9">
-                                                <i class="las la-star"></i>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="rating" value="10" checked="">
-                                                <i class="las la-star"></i>
-                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group">

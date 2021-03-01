@@ -34,7 +34,7 @@
                            <div class="form-group d-flex">
                                <div class="align-self-baseline input-group-sm" data-toggle="aizuploader" data-multiple="true">
                                    <button type="button" class="btn btn-secondary btn-sm">
-                                       <i class="la la-paperclip"></i>
+                                       <i class="la la-paperclip"> ارفاق ملف</i>
                                    </button>
                                    <input type="hidden" name="attachments" class="selected-files">
                                </div>

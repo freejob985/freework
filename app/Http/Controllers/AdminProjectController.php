@@ -134,7 +134,7 @@ class AdminProjectController extends Controller
                 "freelancer_proposal_for_project",
                 "تم قبول الخدمة",
                 route('project.details', $project->slug),
-                $project->user_id,
+                $project->client_user_id,
                 1,
                 'client'
             );

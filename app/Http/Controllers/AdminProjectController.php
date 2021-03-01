@@ -132,7 +132,7 @@ class AdminProjectController extends Controller
           
             NotificationUtility::set_notification(
                 "freelancer_proposal_for_project",
-                "تم قبول الخدمة",
+                "تم قبول المشروع",
                 route('project.details', $project->slug),
                 $project->client_user_id,
                 1,

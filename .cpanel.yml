@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/digigat1/sub.digi-gate.com/
+    - /bin/cp * $DEPLOYPATH

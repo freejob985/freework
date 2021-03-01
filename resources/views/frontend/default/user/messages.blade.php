@@ -79,7 +79,7 @@
                                                         display: none !important;
                                                     "  
                                                         @endif
-                                                        
+
 
                                                         data-url="{{ route('chat_view', $single_chat_thread->id) }}" data-refresh="{{ route('chat_refresh', $single_chat_thread->id) }}"
                                                    

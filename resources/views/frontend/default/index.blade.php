@@ -26,9 +26,9 @@
 				</p>
 				<div class="wow slideInDown">
 				@if (Auth::check())
-					
-			
+				@if (isClient())
 					<a href="{{Request::root()}}/Terms-Conditions-Project" class="btn btn-primary">{{ translate('I want to Hire') }}</a>
+					@endif
 					<a href="{{ route('register') }}"
 						class="btn btn-outline-primary">{{ translate('I want to Work') }}</a>
 						@else

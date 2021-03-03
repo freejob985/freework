@@ -68,6 +68,8 @@ $lang = \App\Models\Language::where('code', $locale)->first();
     <link rel="stylesheet" href="{{ my_asset('assets/common/css/vendors.css') }}">
     <link rel="stylesheet" href="{{ my_asset('assets/common/css/animate.css') }}">
 
+
+    
     @if($lang != null && $lang->rtl == 1)
     <link rel="stylesheet" href="{{ my_asset('assets/common/css/bootstrap-rtl.min.css') }}">
     @endif

@@ -26,6 +26,8 @@
                    @csrf
                    <input type="hidden" name="support_ticket_id" value="{{ $support_ticket->id }}">
                    <input type="hidden" name="status" value="{{ $support_ticket->status }}" required>
+                   <input type="hidden" name="status" value="{{ $support_ticket->status }}" required>
+
                    <div class="mb-2">
                      <textarea class="aiz-text-editor" name="reply" required></textarea>
                    </div>
@@ -34,7 +36,7 @@
                            <div class="form-group d-flex">
                                <div class="align-self-baseline input-group-sm" data-toggle="aizuploader" data-multiple="true">
                                    <button type="button" class="btn btn-secondary btn-sm">
-                                       <i class="la la-paperclip"> ارفاق ملف</i>
+                                       <i class="la la-paperclip"></i>
                                    </button>
                                    <input type="hidden" name="attachments" class="selected-files">
                                </div>

@@ -9,7 +9,7 @@
             <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-            <input type="number" min="0" step="0.01" class="form-control form-control-sm" name="amount" placeholder="السعر" required>
+            <input type="number"  step="0.01"  class="form-control form-control-sm" name="amount" placeholder="25-1000$" min="25" max="10000"  required>
         </div>
     </div>
     <div class="form-group">

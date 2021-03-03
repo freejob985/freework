@@ -186,7 +186,7 @@
 
                                 @foreach ($projects as $key => $project)
                                     <a href="{{ route('project.details', $project->slug) }}" class="d-block d-xl-flex card-project text-inherit px-3 py-4">
-                                        <div class="flex-grow-1">
+                                        <div class="flex-grow-1" style="width:100%;">
                                             <h5 class="h6 fw-600 lh-1-5">{{ $project->name }}</h5>
                                             <div class="text-muted lh-1-8">
                                                 <p>{{ function_that_shortens_text_but_doesnt_cutoff_words($project->excerpt,150) }}</p>
@@ -216,7 +216,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                        <div class="flex-shrink-0 pt-4 pt-xl-0 pl-xl-4 d-flex flex-row-reverse flex-xl-column justify-content-between align-items-center">
+                                        <div class="" >
                                             <div class="text-right">
                                                 <span class="small text-secondary">{{ translate('Budget') }}</span>
                                                 <h4 class="mb-0">{{ single_price($project->price) }}</h4>
@@ -242,7 +242,7 @@
                                            
                                             </div>
                                             <div>
-                                                <div class="d-flex align-items-center">
+                                                <div class="d-flex align-items-center" style="float:left;">
                                                     <span class="avatar avatar-xs">
                                                         @if($project->client->photo != null)
                                                             <img src="{{ custom_asset($project->client->photo) }}">

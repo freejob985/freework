@@ -205,7 +205,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+}p{width:100%!important;}
         @media (max-width:800px) {
             .aiz-carousel-full * {
                 height: 212PX;

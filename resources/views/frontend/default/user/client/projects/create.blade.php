@@ -73,7 +73,7 @@
                                     </label>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="number" min="0" step="0.01" class="form-control" name="price" placeholder="Enter project budget">
+                                            <input type="number"  step="0.01" class="form-control" name="price" placeholder="25-1000$" min="25" max="10000">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">$</span>
                                             </div>
